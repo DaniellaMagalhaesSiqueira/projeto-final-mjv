@@ -1,3 +1,4 @@
+@import 'src/assets/styles/_colors.scss';
 @font-face {
     font-family: 'Libre Baskerville';
     font-style: normal;
@@ -23,8 +24,8 @@ ul{
         padding: 20px;
     }
     li:hover{
-        background-color: white;
-        background: #DDA0DD;
+        background: $cor-logo-azul;
+        color: $cor-logo-amarela;
         border-radius: 15px;
     }
     li:hover ul{
@@ -32,6 +33,7 @@ ul{
         width: fit-content;
         .box{
             background: #ddd;
+            color: black;
             border-radius: 15px;
         }
     }
