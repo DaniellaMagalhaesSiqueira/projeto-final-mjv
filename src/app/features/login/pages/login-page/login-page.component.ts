@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/features/user/services/user.service';
 
 @Component({
   templateUrl: './login-page.component.html',
@@ -6,11 +9,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  error: boolean = true;
+  error: boolean = false;
 
-  constructor() { }
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    ) { }
+
+  loginForm = new FormGroup({
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+  });
+  
 
   ngOnInit(): void {
   }
 
+  //sessionStorage e localStorage
+
+  onSubmit(){
+    const user = this.userService.getUserByEmailAndPassword(this.loginForm.value.email, this.loginForm.value.password);
+    console.log(user);
+    if(!user){
+      this.error = true;
+    }else{
+      // localStorage.setItem('userId', String (user.id));
+      sessionStorage.setItem('user', JSON.stringify(user));
+      this.router.navigateByUrl('home');
+    }
+  }
+
+
 }
+
+
+
+

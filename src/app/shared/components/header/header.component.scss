@@ -1,65 +1,70 @@
 @import 'src/assets/styles/_colors.scss';
-@font-face {
-    font-family: 'Libre Baskerville';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/librebaskerville/v9/kmKiZrc3Hgbbcjq75U4uslyuy4kn0qviTgY5KcCsww.woff2) format('woff2');
-    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-ul{
-    display: inline-block;
-    font-family: 'Libre Baskerville';
-    font-weight: 400;
-    font-size: 20px;
-    list-style: none;
-    text-decoration: none;
-    display: flex;
-    gap: 25px;
-    width: 100%;
-    justify-content: center;
-    border-bottom: black;
-    li{
-        cursor: pointer;
-        padding: 20px;
-    }
-    li:hover{
-        background: $cor-logo-azul;
-        color: $cor-logo-amarela;
-        border-radius: 15px;
-    }
-    li:hover ul{
-        display: block;
-        width: fit-content;
-        .box{
-            background: #ddd;
-            color: black;
-            border-radius: 15px;
-        }
-    }
-    .logo{
-        cursor: unset;
-        width: 20%;
-        display: flex;
-        justify-content: center;
-    }
+
+
+ .title {
+     font-style: italic;
+     font-weight: 400;
+     font-size: 34px;
+ }
+
+.icon-button {
+   display: flex;
+   align-items: center;
 }
-.title{
-    font-style: italic;
-    font-size: 2.2rem;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-.bottom-nav{
-    border: 0;
-    border-top: 1px solid black;
-}
-ul {
-    li {
-        ul{
-    display: none;
-    position: absolute;
-        }
-    }
-}
+
+// ul{
+//     display: flex;
+//     // justify-content: flex-end;
+//     flex-flow: nowrap;
+//     font-family: 'Libre Baskerville';
+//     font-weight: 300;
+//     font-size: 16px;
+//     list-style: none;
+//     text-decoration: none;
+//     display: flex;
+//     width: 100%;
+//     border-bottom: black;
+//     li{
+//         cursor: pointer;
+//         padding: 20px;
+//     }
+//     li:hover{
+//         background: $cor-logo-azul;
+//         color: $cor-logo-amarela;
+//         border-radius: 15px;
+//     }
+//     li:hover ul{
+//         display: block;
+//         width: fit-content;
+//         .box{
+//             background: #ddd;
+//             color: black;
+//             border-radius: 15px;
+//         }
+//     }
+//     .logo{
+//         cursor: unset;
+//         width: 20%;
+//         display: flex;
+//         justify-content: center;
+//     }
+// }
+// .title{
+//     font-style: italic;
+//     font-size: 2.2rem;
+//     display: flex;
+//     justify-content: center;
+//     width: 100%;
+// }
+// .bottom-nav{
+//     border: 0;
+//     border-top: 1px solid black;
+// }
+// ul {
+//     li {
+//         ul{
+//     display: none;
+//     position: absolute;
+//         }
+//     }
+// }

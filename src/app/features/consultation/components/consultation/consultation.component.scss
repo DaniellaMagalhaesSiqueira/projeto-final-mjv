@@ -1,19 +1,2 @@
 @import 'src/assets/styles/_colors.scss';
-.container{
-font-family: 'Libre Baskerville';
-display: flex;
-flex-direction: row;
-width: 100%;
-background-color: #ddd;
-padding: 10px;
-    .image-card{
-       max-width: 150px;
-        align-items: center;
-        border-radius: 100%;
-    }
-    .container-text{
-        display: flex;
-        flex-direction: column;
-    }
 
-}

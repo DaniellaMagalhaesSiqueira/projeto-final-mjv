@@ -1,0 +1,44 @@
+<app-header></app-header>
+<h1>Cadastro</h1>
+<span>Todos os campos são obrigatórios</span>
+<div>
+<form [formGroup]="userForm" class="register-form" (submit)="onSubmit()"> 
+    <mat-label>E-mail:</mat-label>
+    <input type="email" matInput formControlName="email" placeholder="Digite o e-mail para cadastro">
+    <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+    <mat-error *ngIf="userForm.controls.email.errors && userForm.value.email.length > 0">
+      Por favor, digite um e-mail válido.
+    </mat-error>
+</form>
+
+    <!-- <form [formGroup]="userForm" class="register-form" (submit)="onSubmit()" >
+        <div class="form-field">
+            <label class="label-input">Nome:</label>
+            <input type="text" placeholder="Digite o nome" formControlName="name">
+            <span class="error" *ngIf="userForm.controls.name.errors && userForm.value.name.length > 0">
+                Digite o campo nome com pelo menos 5 caracteres</span>
+        </div>
+        <div class="form-field">
+            <label class="label-input">E-mail:</label>
+            <input type="email" placeholder="Digite o e-mail" formControlName="email">
+            <span class="errors" *ngIf="userForm.controls.email.errors && userForm.value.email.length > 0">
+                Digite um e-mail válido</span>
+        </div>
+        <div class="form-field">
+            <label class="label-input">Senha:</label>
+            <input type="password" placeholder="Digite uma senha" formControlName="password">
+            <span class="errors" *ngIf="userForm.controls.password.errors">Digite uma senha com pelo menos seis caracteres</span>
+        </div>
+        <div class="form-field">
+            <label class="label-input">Confirmação de Senha:</label>
+            <input type="password" placeholder="Confirme a senha" formControlName="confirmPassword">
+            <span class="errors" *ngIf="userForm.controls.confirmPassword.errors">As senhas não conferem</span>
+        </div>
+        <div>{{userForm.value | json }}</div>
+        <div class="button">
+            <button mat-raised-button type="submit" [disabled]="userForm.invalid" color='primary'>
+                Cadastrar
+            </button>
+        </div>
+    </form> -->
+</div>

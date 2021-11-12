@@ -1,60 +1,29 @@
-<h1 class='title'>Chandra Surya</h1>
-<nav>
-    <ul>
-        <li routerLink="/home">Home</li>
-        <li>Astrologia
-            <ul>
-                <div class='box'>
-                    <li routerLink="/all-consultations">Consultas</li>
-                    <li>Previsões</li>
-                </div>
-            </ul>
-        </li>
-        <li>Ufologia
-            <ul>
-                <div class='box'>
-                    <li>Artigos</li>
-                    <li>Vídeos</li>
-                    <li>Grupos</li>
-                </div>
-            </ul>
-        </li>
-        <li>Artigos
-            <ul>
-                <div class='box'>
-                    <li>Astrologia</li>
-                    <li>Ufologia</li>
-                    <li>Outros</li>
-                </div>
-            </ul>
-        </li>
-        <li>Videos
-            <ul>
-                <div class='box'>
-                    <li>Astrologia</li>
-                    <li>Ufologia</li>
-                    <li>Outros</li>
-                </div>
-            </ul>
-        </li>
-        <li>Tarô
-            <ul>
-                <div class='box'>
-                    <li>Consultas</li>
-                    <li>Jogo On-Line</li>
-                    <li>Outros</li>
-                </div>
-            </ul>
-        </li>
-        <li>Login
-            <ul>
-                <div class='box'>
-                    <li routerLink="/login">Entrar</li>
-                    <li>Criar Conta</li>
-                </div>
-            </ul>
-        </li>
-    </ul>
-    <hr>
-    <!-- <span class='bottom-nav'></span> -->
-</nav>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span class='title'>Chandra Surya</span>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+        <nav>
+            <div class='icon-button'>
+                <mat-icon>home</mat-icon><button mat-button routerLink="/home">Home </button> 
+                <button  mat-button [matMenuTriggerFor] = "astroMenu"> Astrologia </button> 
+                <mat-menu #astroMenu = "matMenu"  yPosition = "below"> 
+                <button  mat-menu-item routerLink="/all-consultations"> Consultas </button > 
+                </mat-menu >
+                <!-- <button  mat-button [matMenuTriggerFor] = "loginMenu" *ngIf="!user">Login</button> 
+                <mat-menu #loginMenu = "matMenu"  yPosition = "below"> 
+                    <button  mat-menu-item routerLink="/login">Entrar</button > 
+                        <button  mat-menu-item routerLink="/self-create-user">Cadastrar</button > 
+                            <button  mat-menu-item routerLink="/users">Ver Usuários</button> 
+                        </mat-menu > -->
+                    </div>
+                </nav>
+                <button  mat-button [matMenuTriggerFor] = "managerMenu">Conta</button>
+                <mat-menu #managerMenu="matMenu" yPosition="below">
+                    <button mat-menu-item *ngIf="user" (click)="logout()">Sair</button> 
+                    <button mat-menu-item *ngIf="!user" routerLink="/login">Entrar</button> 
+                    <button mat-menu-item *ngIf="user?.isAdmin" routerLink="/users">Ver Usuários</button> 
+                    <button  mat-menu-item routerLink="/self-create-user" *ngIf="!user">Cadastrar</button > 
+                </mat-menu>
+    </mat-toolbar-row>
+

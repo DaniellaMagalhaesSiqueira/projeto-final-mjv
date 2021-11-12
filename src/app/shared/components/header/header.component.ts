@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/features/user/models/user.model';
 
 @Component({
   selector: 'app-header',
@@ -8,12 +9,24 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  user?: User;
+
   constructor(
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
+    const userStorage = sessionStorage.getItem('user');
+    if(userStorage){
+      this.user = JSON.parse(userStorage);
+    }
   }
+
+  logout(){
+      console.log('sair');
+      sessionStorage.clear();
+      this.router.navigateByUrl('/login');
+    }
 
   navigateByUrl(url: string){
     this.router.navigateByUrl(url);

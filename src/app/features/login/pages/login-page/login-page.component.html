@@ -1,13 +1,13 @@
-<h1 class="title-login">Chandra Surya</h1>
-<hr>
+<app-header></app-header>
 <div class="login-container">
     <h2>Login</h2>
     <h3>Digite usuário e senha para entrar ou cadastre-se</h3>
-    <form class="login-form">
-        <input class="form-field" type="email" placeholder="Digite o e-mail" name="email" required>
+    <form [formGroup]="loginForm" (submit)="onSubmit()">
+        <input class="form-field" type="email" placeholder="Digite o e-mail" formControlName="email" required>
     
-        <input class="form-field" type="password" placeholder="Digite o e-mail" name="password" required>
+        <input class="form-field" type="password" placeholder="Digite o e-mail" formControlName="password" required>
         <br>
         <p class="error" *ngIf="error">Usuário/senha inválidos! Tente novamente.</p>
+    <button [disabled]="loginForm.invalid">Entrar</button>
     </form>
 </div>
