@@ -18,18 +18,6 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  // remove(id: number | undefined){
-  //   if(id){
-  //     const selectedUser = this.userService.getUserById(id);
-  //     this.userService.removeUser(id);
-  //     this.dialog.open(ActionDialogComponent, {
-  //       data: {
-  //         message: `Tem certeza que deseja excluir o usuário ${selectedUser?.name}?`,
-  //         titleDialog: 'Exclusão de usuário:'
-  //       }
-  //     });
-  //   }
-  // }
 
     removeUser(id: number | undefined): void {
       const dialogRef = this.dialog.open(ActionDialogComponent, {

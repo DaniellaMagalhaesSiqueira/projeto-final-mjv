@@ -14,6 +14,9 @@ import { MatRippleModule } from '@angular/material/core';
 import { ActionDialogComponent } from './dialogs/action-dialog/action-dialog.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { CpfPipe } from './pipes/cpf.pipe';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 const materialModules = [
   MatDialogModule,
@@ -25,6 +28,8 @@ const materialModules = [
   MatRippleModule,
   MatFormFieldModule,
   MatInputModule,
+  MatSelectModule,
+  MatDatepickerModule,
 ];
 
 const components = [
@@ -33,9 +38,14 @@ const components = [
  
 ];
 
+const pipes = [
+  CpfPipe,
+];
+
 @NgModule({
   declarations: [
     ...components,
+    ...pipes,
     MessageDialogComponent,
     ActionDialogComponent,
   ],
@@ -47,6 +57,7 @@ const components = [
   exports: [
     ...components,
     ...materialModules,
+    CpfPipe,
   ]
 })
 export class SharedModule { }

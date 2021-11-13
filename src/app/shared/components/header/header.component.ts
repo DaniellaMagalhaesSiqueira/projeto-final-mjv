@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
   logout(){
       console.log('sair');
       sessionStorage.clear();
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/home');
     }
 
   navigateByUrl(url: string){

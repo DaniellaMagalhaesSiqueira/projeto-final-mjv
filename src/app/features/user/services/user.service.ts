@@ -12,84 +12,108 @@ export class UserService {
       isAdmin: true,
       name: 'Ionne',
       email: 'ionne@email.com',
-      password: '123456'
+      password: '123456',
+      cpf: '000-000-000-00',
+      birthDate: '10/10/1990',
     },
     {
       id: 2,
       isAdmin: true,
       name: 'Vera Lúcia',
       email: 'veraluciae@email.com',
-      password: '123456'
+      password: '123456',
+      cpf: '000-000-000-00',
+      birthDate: '10/10/1990',
     },
     {
       id: 3,
       isAdmin: false,
       name: 'Joana',
       email: 'joana@email.com',
-      password: '123456'
+      password: '123456',
+      cpf: '000-000-000-00',
+      birthDate: '10/10/1990',
     },
     {
       id: 4,
       isAdmin: true,
       name: 'Ionne',
       email: 'ionne@email.com',
-      password: '123456'
+      password: '123456',
+      cpf: '000-000-000-00',
+      birthDate: '10/10/1990',
     },
     {
       id: 5,
       isAdmin: true,
       name: 'Vera Lúcia',
       email: 'veraluciae@email.com',
-      password: '123456'
+      password: '123456',
+      cpf: '000-000-000-00',
+      birthDate: '10/10/1990',
     },
     {
       id: 6,
       isAdmin: false,
       name: 'Joana',
       email: 'joana@email.com',
-      password: '123456'
+      password: '123456',
+      cpf: '000-000-000-00',
+      birthDate: '10/10/1990',
     },
     {
       id: 7,
       isAdmin: true,
       name: 'Ionne',
       email: 'ionne@email.com',
-      password: '123456'
+      password: '123456',
+      cpf: '000-000-000-00',
+      birthDate: '10/10/1990',
     },
     {
       id: 8,
       isAdmin: true,
       name: 'Vera Lúcia',
       email: 'veraluciae@email.com',
-      password: '123456'
+      password: '123456',
+      cpf: '000-000-000-00',
+      birthDate: '10/10/1990',
     },
     {
       id: 9,
       isAdmin: false,
       name: 'Joana',
       email: 'joana@email.com',
-      password: '123456'
+      password: '123456',
+      cpf: '000-000-000-00',
+      birthDate: '10/10/1990',
     },
     {
       id: 10,
       isAdmin: true,
       name: 'Ionne',
       email: 'ionne@email.com',
-      password: '123456'
+      password: '123456',
+      cpf: '000-000-000-00',
+      birthDate: '10/10/1990',
     },
     {
       id: 11,
       isAdmin: true,
       name: 'Vera Lúcia',
       email: 'veraluciae@email.com',
-      password: '123456'
+      password: '123456',
+      cpf: '000-000-000-00',
+      birthDate: '10/10/1990',
     },
     {
       id: 12,
       isAdmin: false,
       name: 'Joana',
       email: 'joana@email.com',
-      password: '123456'
+      password: '123456',
+      cpf: '000-000-000-00',
+      birthDate: '10/10/1990',
     },
    
   ];
@@ -106,6 +130,8 @@ export class UserService {
       email: '',
       isAdmin: false,
       password: '',
+      cpf: '000-000-000-00',
+      birthDate: '10/10/1990',
     }
   }
   generateNextId(): number {

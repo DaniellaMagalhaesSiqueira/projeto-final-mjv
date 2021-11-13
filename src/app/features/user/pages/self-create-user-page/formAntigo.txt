@@ -1,0 +1,44 @@
+<div>
+
+    <!-- <form [formGroup]="userForm" class="register-form" (submit)="onSubmit()" >
+        <div class="form-field">
+            <label class="label-input">Nome:</label>
+            <input type="text" placeholder="Digite o nome" formControlName="name">
+            <span class="error" *ngIf="userForm.controls.name.errors && userForm.value.name.length > 0">
+                Digite o campo nome com pelo menos 5 caracteres</span>
+        </div>
+        <div class="form-field">
+            <label class="label-input">E-mail:</label>
+            <input type="email" placeholder="Digite o e-mail" formControlName="email">
+            <span class="errors" *ngIf="userForm.controls.email.errors && userForm.value.email.length > 0">
+                Digite um e-mail válido</span>
+        </div>
+        <div class="form-field">
+            <label class="label-input">Senha:</label>
+            <input type="password" placeholder="Digite uma senha" formControlName="password">
+            <span class="errors" *ngIf="userForm.controls.password.errors">Digite uma senha com pelo menos seis caracteres</span>
+        </div>
+        <div class="form-field">
+            <label class="label-input">Confirmação de Senha:</label>
+            <input type="password" placeholder="Confirme a senha" formControlName="confirmPassword">
+            <span class="errors" *ngIf="userForm.controls.confirmPassword.errors">As senhas não conferem</span>
+        </div>
+        <div>{{userForm.value | json }}</div>
+        <div class="button">
+            <button mat-raised-button type="submit" [disabled]="userForm.invalid" color='primary'>
+                Cadastrar
+            </button>
+        </div>
+    </form> -->
+</div>
+
+
+
+
+
+                <!-- <button  mat-button [matMenuTriggerFor] = "loginMenu" *ngIf="!user">Login</button> 
+                <mat-menu #loginMenu = "matMenu"  yPosition = "below"> 
+                    <button  mat-menu-item routerLink="/login">Entrar</button > 
+                        <button  mat-menu-item routerLink="/self-create-user">Cadastrar</button > 
+                            <button  mat-menu-item routerLink="/users">Ver Usuários</button> 
+                        </mat-menu > -->
