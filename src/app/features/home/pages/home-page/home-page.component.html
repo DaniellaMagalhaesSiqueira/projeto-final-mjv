@@ -1,3 +1,26 @@
-<app-header></app-header>
-<p>home-page works!</p>
-<app-footer></app-footer>
+<app-header></app-header>  
+<mat-card>
+    <mat-stepper orientation="horizontal">
+        <mat-step>
+          <ng-template matStepLabel>Artigo:</ng-template>
+          <ng-template matStepContent>
+            <p>{{slides[0].preview}}</p>
+            <img src="{{slides[0].imageUrl}}" alt="" (click)="navigate(0)">
+            <button mat-button matStepperNext>Próximo</button>
+          </ng-template>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Step 2</ng-template>
+          <ng-template matStepContent>
+            <p>This content was also rendered lazily</p>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </ng-template>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Step 3</ng-template>
+          <p>This content was rendered eagerly</p>
+          <button mat-button matStepperPrevious>Back</button>
+        </mat-step>
+      </mat-stepper>
+</mat-card>

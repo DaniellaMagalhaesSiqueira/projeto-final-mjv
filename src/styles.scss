@@ -11,7 +11,12 @@ $custom-theme: mat-light-theme($custom-app-primary, $custom-app-secondary, $cust
 @include angular-material-theme($custom-theme);
 
 html, body { height: 100% }
-body, .mat-typography { font-family: 'Libre Baskerville'; }
+body, .mat-typography { 
+  font-family: 'Libre Baskerville'; 
+//   background: url("/assets/images/universo.png") no-repeat bottom center scroll;
+//   background-position: 30% 45%;
+//   background-size: cover;
+}
 
 * {
   font-family: 'Libre Baskerville';

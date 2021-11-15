@@ -1,0 +1,8 @@
+<button mat-button [matMenuTriggerFor]="accountMenu">{{!user ? "Entre ou Cadastre-se" : "Conta"}}<mat-icon class="icon">keyboard_arrow_down </mat-icon></button>
+<mat-menu #accountMenu="matMenu" yPosition="below">
+    <button mat-menu-item routerLink="/login" *ngIf="!user"> Entrar </button>
+    <button mat-menu-item routerLink="/self-create-user" *ngIf="!user"> Cadastrar </button>
+    <button mat-menu-item (click)="logout()" *ngIf="user"> Sair </button>
+    <button mat-menu-item routerLink="/edit-user" *ngIf="user"> Editar Perfil </button>
+</mat-menu>             
+            

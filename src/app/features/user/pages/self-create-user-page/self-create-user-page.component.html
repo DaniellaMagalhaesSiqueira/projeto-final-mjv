@@ -5,8 +5,8 @@
     <mat-form [formGroup]="userForm" class="form-user">
         <mat-form-field appearance="fill">
             <mat-label>Nome*</mat-label>
-            <input formControlName="name" matInput type="text" placeholder="Digite o nome" class="maior">
-            <mat-error *ngIf="userForm.invalid">Preencha o campo nome com pelo menos 5 caracteres</mat-error>
+            <input formControlName="name" matInput type="text" placeholder="Digite o nome">
+            <mat-error *ngIf="userForm">Preencha o campo nome com pelo menos 5 caracteres</mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>E-mail*</mat-label>
@@ -16,8 +16,10 @@
 
         <mat-form-field appearance="fill">
             <mat-label>CPF</mat-label>
-            <input formControlName="cpf" matInput type="text">
-            <mat-error *ngIf="userForm.invalid">Preencha o campo CPF apenas com números.</mat-error>
+            <input formControlName="cpf" matInput type="text" type="text" placeholder="000.000.000-00">
+            <!-- <input formControlName="cpf" matInput type="text" [textMask]="{mask: mask}" [(ngModel)]="myModel" type="text">
+            <mat-error *ngIf="userForm.controls.cpf.errors">Preencha um CPF válido.</mat-error> -->
+            <mat-error *ngIf="userForm.controls.cpf.errors">Por favor insira pontos e traço para um CPF válido.</mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Data de Nascimento*</mat-label>
@@ -25,15 +27,14 @@
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Senha*</mat-label>
-            <input formControlName="password" matInput type="text">
-            <mat-error *ngIf="userForm.invalid">A senha precisa ter pelo menos 6 caracteres.</mat-error>
+            <input formControlName="password" matInput type="password">
+            <mat-error *ngIf="userForm.get('password')?.getError('minlength')">A senha precisa ter pelo menos 6 caracteres.</mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Confirme a senha*</mat-label>
-            <input formControlName="confirmPassword" matInput type="text">
-            <mat-error *ngIf="userForm.invalid">As senhas digitadas não são iguais</mat-error>
+            <input formControlName="confirmPassword" matInput type="password">
+            <mat-error *ngIf="userForm.get('confirmPassword')?.getError('mustMatch')">As senhas digitadas não são iguais</mat-error>
         </mat-form-field>
-        <button mat-raised-button (submit)="onSubmit()" color="accent">Enviar</button>
+        <button mat-raised-button (click)="onSubmit()" color="accent" [disabled]="userForm.invalid">Enviar</button>
     </mat-form>
-    {{userForm.value.name}}
 </mat-card>

@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
@@ -16,7 +17,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { CpfPipe } from './pipes/cpf.pipe';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { AccountComponent } from './components/account/account/account.component';
+import { ManagerComponent } from './components/manager/manager/manager.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import {MatStepperModule} from '@angular/material/stepper';
 
 const materialModules = [
   MatDialogModule,
@@ -30,6 +35,9 @@ const materialModules = [
   MatInputModule,
   MatSelectModule,
   MatDatepickerModule,
+  MatGridListModule,
+  MatStepperModule,
+
 ];
 
 const components = [
@@ -48,11 +56,15 @@ const pipes = [
     ...pipes,
     MessageDialogComponent,
     ActionDialogComponent,
+    AccountComponent,
+    ManagerComponent,    
+
   ],
   imports: [
     CommonModule,
     RouterModule,
     ...materialModules,
+
   ],
   exports: [
     ...components,

@@ -7,10 +7,22 @@
      font-size: 34px;
  }
 
-.icon-button {
-   display: flex;
-   align-items: center;
+
+   
+.mat-toolbar-row{
+    .pre-account{
+        display: flex;
+        flex-grow: 1;
+    }
+    
 }
+
+.icon{
+    margin-bottom: 10px;
+}
+
+
+
 
 // ul{
 //     display: flex;

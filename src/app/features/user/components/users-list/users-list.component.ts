@@ -13,7 +13,8 @@ export class UsersListComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.users = this.userService.getUsers();
+    //mostrará apenas os usuários admin
+    this.users = this.userService.getUsers().filter((user) => user.isAdmin === true );
   }
 
 }

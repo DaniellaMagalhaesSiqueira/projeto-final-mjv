@@ -9,6 +9,7 @@ export class ConsultationService {
   consultations: Array<Consultation> = [
     { 
       id:1, 
+      isUser: true,
       professional: 'Ionne', 
       theme: 'Astrologia', 
       description: 'Conultas on-line',
@@ -18,6 +19,7 @@ export class ConsultationService {
     },
     { 
       id:2, 
+      isUser: true,
       professional: 'Vera Lúcia', 
       theme: 'Astrologia', 
       description: 'Conultas on-line',
@@ -26,7 +28,8 @@ export class ConsultationService {
       imageUrl: 'https://cdn.w600.comps.canstockphoto.com.br/mulher-usu%C3%A1rio-femininas-%C3%ADcone-cliparte-vetor_csp37856004.jpg',
     },
     { 
-      id:1, 
+      id:3, 
+      isUser: false,
       professional: 'Cíntia', 
       theme: 'Astrologia', 
       description: 'Conultas on-line',
@@ -35,7 +38,8 @@ export class ConsultationService {
       imageUrl: 'https://cdn.w600.comps.canstockphoto.com.br/mulher-usu%C3%A1rio-femininas-%C3%ADcone-cliparte-vetor_csp37856004.jpg',
     },
     { 
-      id:1, 
+      id:4, 
+      isUser: false,
       professional: 'Cíntia', 
       theme: 'Astrologia', 
       description: 'Conultas on-line',
@@ -44,7 +48,8 @@ export class ConsultationService {
       imageUrl: 'https://cdn.w600.comps.canstockphoto.com.br/mulher-usu%C3%A1rio-femininas-%C3%ADcone-cliparte-vetor_csp37856004.jpg',
     },
     { 
-      id:1, 
+      id:5, 
+      isUser: false,
       professional: 'Cíntia', 
       theme: 'Astrologia', 
       description: 'Conultas on-line',
@@ -53,7 +58,8 @@ export class ConsultationService {
       imageUrl: 'https://cdn.w600.comps.canstockphoto.com.br/mulher-usu%C3%A1rio-femininas-%C3%ADcone-cliparte-vetor_csp37856004.jpg',
     },
     { 
-      id:1, 
+      id:6, 
+      isUser: false,
       professional: 'Cíntia', 
       theme: 'Astrologia', 
       description: 'Conultas on-line',
@@ -62,7 +68,8 @@ export class ConsultationService {
       imageUrl: 'https://cdn.w600.comps.canstockphoto.com.br/mulher-usu%C3%A1rio-femininas-%C3%ADcone-cliparte-vetor_csp37856004.jpg',
     },
     { 
-      id:1, 
+      id:7, 
+      isUser: false,
       professional: 'Cíntia', 
       theme: 'Astrologia', 
       description: 'Conultas on-line',
@@ -71,7 +78,8 @@ export class ConsultationService {
       imageUrl: 'https://cdn.w600.comps.canstockphoto.com.br/mulher-usu%C3%A1rio-femininas-%C3%ADcone-cliparte-vetor_csp37856004.jpg',
     },
     { 
-      id:1, 
+      id:8, 
+      isUser: false,
       professional: 'Cíntia', 
       theme: 'Astrologia', 
       description: 'Conultas on-line',
@@ -90,6 +98,7 @@ export class ConsultationService {
   getDefaultConsultation(): Consultation {
     return {
       id: this.generateNextId(),
+      isUser: false,
       professional: '',
       theme: '',
       description: '',

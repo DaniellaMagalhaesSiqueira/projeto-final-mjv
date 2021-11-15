@@ -1,5 +1,6 @@
+import { User } from './../models/user.model';
 import { Injectable } from '@angular/core';
-import { User } from '../models/user.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -156,5 +157,10 @@ export class UserService {
 
   getUserByEmailAndPassword(email: string | undefined, password: string | undefined) {
     return this.users.find((user) => user.email === email && user.password === password);
+  }
+
+  editUser(user: User){
+    this.removeUser(user.id);
+    this.createUser(user);
   }
 }

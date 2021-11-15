@@ -8,11 +8,12 @@
 </div> -->
 <mat-card class="example-card">
     <mat-card-title-group>
-      <mat-card-title>{{consultation?.professional}}</mat-card-title>
-      <mat-card-subtitle>{{consultation?.theme}}</mat-card-subtitle>
+      <mat-card-title>{{ consultation?.professional }}</mat-card-title>
+      <mat-card-subtitle>{{ consultation?.theme }}</mat-card-subtitle>
       <img mat-card-md-image src="{{consultation?.imageUrl}}" >
     </mat-card-title-group>
     <mat-card-content>
-        <p>{{consultation?.description}}</p>
+        <p>{{ consultation?.description }}</p>
+        <p>Valor: {{ consultation?.price | currency: 'BRL' }}</p>
     </mat-card-content>
   </mat-card>

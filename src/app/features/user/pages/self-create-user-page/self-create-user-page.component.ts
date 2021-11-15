@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { MessageDialogComponent } from 'src/app/shared/dialogs/message-dialog/message-dialog.component';
 import { MustMatch } from 'src/app/shared/validators/string-validator.validator';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
@@ -12,9 +13,12 @@ import { UserService } from '../../services/user.service';
 })
 export class SelfCreateUserPageComponent implements OnInit {
 
+  public myModel = '';
+  public mask = [/[1-9]/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/,'-',/\d/, /\d/,];
+  regex = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
   user: User = this.userService.getDefaultUser();
+  userForm!: FormGroup;
   
-  teste = '12312312300';
   constructor(
     private userService: UserService,
     private formBuilder: FormBuilder,
@@ -22,48 +26,49 @@ export class SelfCreateUserPageComponent implements OnInit {
     private dialog: MatDialog,
     ){}
     
- 
     
-    userForm: FormGroup = this.formBuilder.group({
-    name: new FormControl('',[
-      Validators.required, 
-      Validators.minLength(5),
-      Validators.maxLength(150)]),
-    cpf: new FormControl('000.000.000-00'),
-    birthDate: new FormControl('', [Validators.required]),
-      email: new FormControl('', [
-        Validators.required,
-        Validators.email
-      ]),
-      password: new FormControl('', [
-        Validators.minLength(6),
-        Validators.required,
-      ]),
-      confirmPassword: new FormControl(''),
-  },
-    {validator: MustMatch('password', 'confirmPassword')}
-  );
-
-
-  ngOnInit(): void {
     
+    ngOnInit(): void {
+      
+      this.userForm = this.formBuilder.group({
+     name: new FormControl('',[
+       Validators.required, 
+       Validators.minLength(5),
+       Validators.maxLength(150)]),
+     cpf: new FormControl('', [Validators.pattern( /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/)]),
+     birthDate: new FormControl(''),
+       email: new FormControl('', [
+         Validators.required,
+         Validators.email
+       ]),
+       password: new FormControl('', [
+         Validators.minLength(6),
+         Validators.required,
+       ]),
+       confirmPassword: new FormControl(''),
+   },
+     {validator: MustMatch('password', 'confirmPassword')}
+   );
+   console.log(this.userForm);
   }
-  
+
   onSubmit(){
-    // const formValue = this.userForm.value;
-    // this.user.name = formValue.name;
-    // this.user.email = formValue.email;
-    // this.user.cpf = formValue.cpf | cpf;
-    // this.user.password = formValue.password;
-    // this.user.isAdmin = false;
-    // this.userService.createUser(this.user);
-    //  this.dialog.open(MessageDialogComponent, {
-    //    data: {
-    //      message: 'Conta criada com sucesso!',
-    //      titleMessage: 'Sucesso!'
-    //    }
-    //  });
-    // this.router.navigateByUrl('/users');
+    const formValue = this.userForm.value;
+    this.user.name = formValue.name;
+    this.user.email = formValue.email;
+    this.user.cpf = formValue.cpf;
+    this.user.password = formValue.password;
+    this.user.isAdmin = false;
+    this.userService.editUser(this.user);
+     this.dialog.open(MessageDialogComponent, {
+       data: {
+         message: 'Conta criada com sucesso!',
+         titleMessage: 'Sucesso!'
+       }
+     });
+    this.router.navigateByUrl('/login');
+  //TODO: usar text-mask 
+   
 
   }
 
