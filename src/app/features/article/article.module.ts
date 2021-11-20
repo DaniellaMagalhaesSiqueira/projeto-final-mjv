@@ -1,9 +1,10 @@
 import { SharedModule } from 'src/app/shared/shared.module';
-import { NgModule } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 import { ArticleComponent } from './components/article/article.component';
 import { ArticleCardComponent } from './components/article-card/article-card.component';
 import { ArticleListComponent } from './components/article-list/article-list.component';
+import { NgModule } from '@angular/core';
 
 
 
@@ -19,5 +20,8 @@ import { ArticleListComponent } from './components/article-list/article-list.com
     CommonModule,
     SharedModule,
   ],
+  exports: [
+    ArticleListComponent,
+  ]
 })
 export class ArticleModule { }

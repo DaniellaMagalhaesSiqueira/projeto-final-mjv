@@ -1,13 +1,15 @@
 import { MatDialog } from '@angular/material/dialog';
 import { UserService } from './../../services/user.service';
 import { User } from './../../models/user.model';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { MustMatch } from 'src/app/shared/validators/string-validator.validator';
 import { formatDate } from '@angular/common';
 import * as moment from 'moment';
 import { MessageDialogComponent } from 'src/app/shared/dialogs/message-dialog/message-dialog.component';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 
 @Component({
   templateUrl: './edit-user-page.component.html',

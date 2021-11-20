@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActionDialogComponent } from 'src/app/shared/dialogs/action-dialog/action-dialog.component';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-user',

@@ -1,9 +1,7 @@
 
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MessageDialogComponent } from './dialogs/message-dialog/message-dialog.component';
 import { MatMenuModule } from '@angular/material/menu';
@@ -22,6 +20,9 @@ import { AccountComponent } from './components/account/account/account.component
 import { ManagerComponent } from './components/manager/manager/manager.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 const materialModules = [
   MatDialogModule,
@@ -37,6 +38,7 @@ const materialModules = [
   MatDatepickerModule,
   MatGridListModule,
   MatStepperModule,
+  MatSidenavModule,
 
 ];
 
@@ -57,7 +59,8 @@ const pipes = [
     MessageDialogComponent,
     ActionDialogComponent,
     AccountComponent,
-    ManagerComponent,    
+    ManagerComponent, 
+ 
 
   ],
   imports: [
@@ -65,10 +68,12 @@ const pipes = [
     RouterModule,
     ...materialModules,
 
+
   ],
   exports: [
     ...components,
     ...materialModules,
+
     CpfPipe,
   ]
 })

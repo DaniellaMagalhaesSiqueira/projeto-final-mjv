@@ -1,6 +1,7 @@
 import { Article } from './../../../article/models/article.model';
-import { Component, Input, OnInit } from '@angular/core';
+
 import { ArticleService } from 'src/app/features/article/services/article.service';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({

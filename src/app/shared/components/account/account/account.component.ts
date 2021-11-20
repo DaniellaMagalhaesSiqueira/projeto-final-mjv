@@ -1,7 +1,8 @@
 import { UserService } from './../../../../features/user/services/user.service';
 import { User } from './../../../../features/user/models/user.model';
-import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-account',
