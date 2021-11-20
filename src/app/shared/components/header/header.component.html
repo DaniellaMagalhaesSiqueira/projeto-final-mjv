@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar  color="primary">
     <mat-toolbar-row>
         <span class='title'>Chandra Surya</span>
     </mat-toolbar-row>
@@ -9,6 +9,10 @@
         <button mat-button [matMenuTriggerFor]="astroMenu"> Astrologia </button>
         <mat-menu #astroMenu="matMenu" yPosition="below">
             <button mat-menu-item routerLink="/all-consultations"> Consultas </button>
+        </mat-menu>
+        <button mat-button [matMenuTriggerFor]="articleMenu"> Artigos </button>
+        <mat-menu #articleMenu="matMenu" yPosition="below">
+            <button mat-menu-item routerLink="/all-articles"> Todos os Artigos </button>
         </mat-menu>
         <app-manager></app-manager>
         <span class="pre-account"></span>

@@ -1,5 +1,6 @@
 
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Article } from '../../models/article.model';
 
 @Component({
@@ -11,9 +12,16 @@ export class ArticleCardComponent implements OnInit {
   @Input()
   article?: Article;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
   }
+  navigate(article: Article){
+
+    this.router.navigateByUrl(`article-detail/${article.id}`);
+  }
+
 
 }

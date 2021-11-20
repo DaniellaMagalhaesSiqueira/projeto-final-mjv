@@ -1,4 +1,8 @@
-<h2>{{article?.title}}</h2>
-<h4>{{article?.preview}}</h4>
-<img src="{{article?.imageUrl}}" >
-<p>{{article?.text}}</p>
+<div class="article-items">
+    <h1 align="center">{{article?.title | titlecase}}</h1>
+     <h2 align="center">{{article?.preview}}</h2>
+     <img src="{{article?.imageUrl}}">
+     <div class="text">
+         <p align="justify">{{article?.text}}</p>
+     </div>
+</div>

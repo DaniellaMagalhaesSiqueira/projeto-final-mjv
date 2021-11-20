@@ -1,0 +1,36 @@
+<app-header></app-header>
+<h1>Criar Artigo</h1>
+<mat-form [formGroup]="articleForm" class="article-form">
+    <mat-form-field appearance="fill">
+        <mat-label>Autor do Artigo</mat-label>
+        <input matInput type="text" formControlName="author" placeholder="Nome do autor">
+        <mat-error>O campo autor é obrigatório</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Título</mat-label>
+        <input matInput type="text" formControlName="title" placeholder="Título do artigo">
+        <mat-error>O campo título é obrigatório</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Subtítulo</mat-label>
+        <input matInput type="text" formControlName="preview" placeholder="Subtítulo do artigo">
+    </mat-form-field> 
+    <mat-form-field appearance="fill">
+        <mat-label>Texto</mat-label>
+        <textarea matInput formControlName="text" placeholder="Texto"></textarea>
+        <mat-error>O campo texto é obrigatório</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Tema</mat-label>
+        <input matInput type="text" formControlName="theme" placeholder="Ufologia por ex.">
+        <mat-error>O campo tema é obrigatório</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Caminho da imagem usada</mat-label>
+        <!-- <input type="file" #UploadFileInput id="fileUpload" (change)="fileChangeEvent($event)" name="fileUpload"
+            multiple="multiple" accept="image/*" /> -->
+        <input matInput type="text" formControlName="theme">
+        <mat-error>Insira um caminho válido para a imagem do artigo</mat-error>
+    </mat-form-field>
+    <button mat-raised-button [disabled]="articleForm.invalid">Enviar</button>
+</mat-form>

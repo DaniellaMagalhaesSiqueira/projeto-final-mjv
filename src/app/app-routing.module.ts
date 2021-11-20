@@ -1,6 +1,9 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AllArticlesPageComponent } from './features/article/pages/all-articles-page/all-articles-page.component';
+import { ArticleDetailPageComponent } from './features/article/pages/article-detail-page/article-detail-page.component';
+import { CreateArticlePageComponent } from './features/article/pages/create-article-page/create-article-page.component';
 import { AllConsultationsPageComponent } from './features/consultation/pages/all-consultations-page/all-consultations-page.component';
 import { HomePageComponent } from './features/home/pages/home-page/home-page.component';
 import { LoginPageComponent } from './features/login/pages/login-page/login-page.component';
@@ -19,6 +22,9 @@ const routes: Routes = [
   { path: 'self-create-user', component: SelfCreateUserPageComponent },
   { path: 'edit-user', component: EditUserPageComponent },
   { path: 'create-admin-user', component: CreateAdminUserPageComponent },
+  { path: 'article-detail/:id', component: ArticleDetailPageComponent },
+  { path: 'all-articles', component: AllArticlesPageComponent },
+  { path: 'create-article', component: CreateArticlePageComponent },
   // 'article-detail/:id'
  
   // { path: 'admin', component: ,  canActivate: [ AuthGuardGuard] },

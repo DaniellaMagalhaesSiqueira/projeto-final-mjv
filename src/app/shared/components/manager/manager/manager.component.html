@@ -2,5 +2,6 @@
 <button mat-button [matMenuTriggerFor]="managerMenu" *ngIf="user && user.isAdmin"> Gerenciar</button>
 <mat-menu #managerMenu="matMenu" yPosition="below">
     <button mat-menu-item routerLink="/create-admin-user"> Criar Conta Administrador </button>
-    <button mat-menu-item routerLink="/users"> Ver Usuário </button>
+    <button mat-menu-item routerLink="/users"> Ver Usuários Administradores </button>
+    <button mat-menu-item routerLink="/create-article"> Inserir Artigo </button>
 </mat-menu> 

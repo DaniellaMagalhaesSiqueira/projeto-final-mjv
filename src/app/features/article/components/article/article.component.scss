@@ -1,0 +1,14 @@
+img, .text{
+    width: 640px;
+    height: 360px;
+}
+h1{
+    font-family:'Libre Baskerville';
+    font-style: italic;
+    font-size: 3rem;
+}
+p::first-letter{
+    font-size: 4rem;
+    font-weight: bold;
+    color: #DB7093;
+}
