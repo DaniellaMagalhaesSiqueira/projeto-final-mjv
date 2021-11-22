@@ -1,4 +1,11 @@
 <app-header></app-header>
-<mat-card>
-    <app-article [article]="article"></app-article>
-</mat-card>
+    <mat-card>
+        <app-article [article]="article"></app-article>
+    </mat-card>
+    <div *ngIf="this.user">
+        <app-comment></app-comment>
+    </div>
+    <div *ngIf="!this.user">
+        <p>Entre com e-mail e senha para fazer um comentário</p>
+    </div>
+<app-footer></app-footer>

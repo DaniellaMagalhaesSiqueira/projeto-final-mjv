@@ -4,12 +4,12 @@
     <h4><i>Preencha o formulário para se cadastrar</i></h4>
     <mat-form [formGroup]="userForm" class="form-user">
         <mat-form-field appearance="fill">
-            <mat-label>Nome*</mat-label>
+            <mat-label>Nome</mat-label>
             <input formControlName="name" matInput type="text" placeholder="Digite o nome">
             <mat-error *ngIf="userForm">Preencha o campo nome com pelo menos 5 caracteres</mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
-            <mat-label>E-mail*</mat-label>
+            <mat-label>E-mail</mat-label>
             <input formControlName="email" matInput type="text">
             <mat-error *ngIf="userForm.invalid">Preencha um e-mail válido.</mat-error>
         </mat-form-field>
@@ -22,19 +22,20 @@
             <mat-error *ngIf="userForm.controls.cpf.errors">Por favor insira pontos e traço para um CPF válido.</mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
-            <mat-label>Data de Nascimento*</mat-label>
+            <mat-label>Data de Nascimento</mat-label>
             <input matInput type="date">
         </mat-form-field>
         <mat-form-field appearance="fill">
-            <mat-label>Senha*</mat-label>
+            <mat-label>Senha</mat-label>
             <input formControlName="password" matInput type="password">
             <mat-error *ngIf="userForm.get('password')?.getError('minlength')">A senha precisa ter pelo menos 6 caracteres.</mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
-            <mat-label>Confirme a senha*</mat-label>
+            <mat-label>Confirme a senha</mat-label>
             <input formControlName="confirmPassword" matInput type="password">
             <mat-error *ngIf="userForm.get('confirmPassword')?.getError('mustMatch')">As senhas digitadas não são iguais</mat-error>
         </mat-form-field>
         <button mat-raised-button (click)="onSubmit()" color="accent" [disabled]="userForm.invalid">Enviar</button>
     </mat-form>
 </mat-card>
+<app-footer></app-footer>

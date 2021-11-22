@@ -7,8 +7,15 @@ h1{
     font-style: italic;
     font-size: 3rem;
 }
-p::first-letter{
+ p::first-letter{
     font-size: 4rem;
     font-weight: bold;
     color: #DB7093;
+}
+.article-items{
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

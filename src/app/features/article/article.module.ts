@@ -9,6 +9,7 @@ import { ArticleDetailPageComponent } from './pages/article-detail-page/article-
 import { AllArticlesPageComponent } from './pages/all-articles-page/all-articles-page.component';
 import { CreateArticlePageComponent } from './pages/create-article-page/create-article-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommentModule } from '../comment/comment.module';
 
 
 
@@ -27,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
+    CommentModule,
   ],
   exports: [
     ArticleListComponent,

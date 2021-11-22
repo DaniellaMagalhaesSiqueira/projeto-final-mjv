@@ -21,10 +21,10 @@ const routes: Routes = [
   { path: 'users', component: UserPageComponent, canActivate: [AuthGuardGuard] },
   { path: 'self-create-user', component: SelfCreateUserPageComponent },
   { path: 'edit-user', component: EditUserPageComponent },
-  { path: 'create-admin-user', component: CreateAdminUserPageComponent },
+  { path: 'create-admin-user', component: CreateAdminUserPageComponent, canActivate: [AuthGuardGuard] },
   { path: 'article-detail/:id', component: ArticleDetailPageComponent },
   { path: 'all-articles', component: AllArticlesPageComponent },
-  { path: 'create-article', component: CreateArticlePageComponent },
+  { path: 'create-article', component: CreateArticlePageComponent, canActivate: [AuthGuardGuard]  },
   // 'article-detail/:id'
  
   // { path: 'admin', component: ,  canActivate: [ AuthGuardGuard] },

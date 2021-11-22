@@ -27,10 +27,8 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Caminho da imagem usada</mat-label>
-        <!-- <input type="file" #UploadFileInput id="fileUpload" (change)="fileChangeEvent($event)" name="fileUpload"
-            multiple="multiple" accept="image/*" /> -->
-        <input matInput type="text" formControlName="theme">
+        <input matInput type="text" formControlName="imageUrl">
         <mat-error>Insira um caminho válido para a imagem do artigo</mat-error>
     </mat-form-field>
-    <button mat-raised-button [disabled]="articleForm.invalid">Enviar</button>
+    <button mat-raised-button [disabled]="articleForm.invalid" (click)="onSubmit()">Enviar</button>
 </mat-form>
