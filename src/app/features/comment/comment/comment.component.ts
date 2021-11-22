@@ -18,7 +18,7 @@ export class CommentComponent implements OnInit {
       "user": [''],
       "comment": [''],
       "article": [''],
-    })
+    });
   }
 
 }

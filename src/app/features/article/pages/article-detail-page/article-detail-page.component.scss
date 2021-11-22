@@ -1,9 +1,6 @@
-.mat-card{
-    max-width: 800px;
+.article {
+    margin-top: 20px;
+    width: 100%;
     display: flex;
-    align-items: center;
-
-    .app-article{
-        justify-content: center;
-    }
+    justify-content: center;
 }

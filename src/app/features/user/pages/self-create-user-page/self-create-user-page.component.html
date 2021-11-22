@@ -17,8 +17,6 @@
         <mat-form-field appearance="fill">
             <mat-label>CPF</mat-label>
             <input formControlName="cpf" matInput type="text" type="text" placeholder="000.000.000-00">
-            <!-- <input formControlName="cpf" matInput type="text" [textMask]="{mask: mask}" [(ngModel)]="myModel" type="text">
-            <mat-error *ngIf="userForm.controls.cpf.errors">Preencha um CPF válido.</mat-error> -->
             <mat-error *ngIf="userForm.controls.cpf.errors">Por favor insira pontos e traço para um CPF válido.</mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
