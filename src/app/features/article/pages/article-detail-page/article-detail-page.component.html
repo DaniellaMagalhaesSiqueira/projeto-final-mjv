@@ -5,7 +5,7 @@
     </mat-card>
 </div>
 <div *ngIf="this.user">
-    <app-comment></app-comment>
+    <app-comment [article]="article"></app-comment>
 </div>
 <div *ngIf="!this.user">
     <p>Entre com e-mail e senha para fazer um comentário</p>

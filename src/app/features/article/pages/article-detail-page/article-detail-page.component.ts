@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Comment } from 'src/app/features/comment/models/comment.model';
 import { User } from 'src/app/features/user/models/user.model';
@@ -22,6 +22,7 @@ export class ArticleDetailPageComponent implements OnInit {
 
 
   ngOnInit(): void {
+    sessionStorage.setItem('article', JSON.stringify(this.article));
     const userStorage = sessionStorage.getItem('user');
     if(userStorage){
       this.user = JSON.parse(userStorage);

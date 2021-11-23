@@ -57,8 +57,8 @@ export class UserService {
     {
       id: 6,
       isAdmin: false,
-      name: 'Joana',
-      email: 'joana@email.com',
+      name: 'Maria',
+      email: 'maria@email.com',
       password: '123456',
       cpf: '000-000-000-00',
       birthDate: '10/10/1990',
@@ -84,8 +84,8 @@ export class UserService {
     {
       id: 9,
       isAdmin: false,
-      name: 'Joana',
-      email: 'joana@email.com',
+      name: 'Ana',
+      email: 'Ana@email.com',
       password: '123456',
       cpf: '000-000-000-00',
       birthDate: '10/10/1990',
@@ -108,15 +108,6 @@ export class UserService {
       cpf: '000-000-000-00',
       birthDate: '10/10/1990',
     },
-    {
-      id: 12,
-      isAdmin: false,
-      name: 'Joana',
-      email: 'joana@email.com',
-      password: '123456',
-      cpf: '000-000-000-00',
-      birthDate: '10/10/1990',
-    },
    
   ];
   constructor() { }
@@ -134,7 +125,7 @@ export class UserService {
       password: '',
       cpf: '000-000-000-00',
       birthDate: '10/10/1990',
-    }
+    };  
   }
   generateNextId(): number {
     return this.users[(this.users.length - 1)].id + 1;

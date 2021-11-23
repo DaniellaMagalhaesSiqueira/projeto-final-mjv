@@ -1,5 +1,4 @@
 import { SharedModule } from 'src/app/shared/shared.module';
-
 import { CommonModule } from '@angular/common';
 import { ArticleComponent } from './components/article/article.component';
 import { ArticleCardComponent } from './components/article-card/article-card.component';
