@@ -23,6 +23,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { MatListModule } from '@angular/material/list';
 
 const materialModules = [
   MatDialogModule,
@@ -39,7 +40,7 @@ const materialModules = [
   MatGridListModule,
   MatStepperModule,
   MatSidenavModule,
-
+  MatListModule,
 ];
 
 const components = [
