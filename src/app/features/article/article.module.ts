@@ -13,6 +13,7 @@ import { CommentModule } from '../comment/comment.module';
 
 
 
+
 @NgModule({
   declarations: [
     ArticleComponent,
@@ -21,6 +22,7 @@ import { CommentModule } from '../comment/comment.module';
     ArticleDetailPageComponent,
     AllArticlesPageComponent,
     CreateArticlePageComponent,
+
 
   ],
   imports: [

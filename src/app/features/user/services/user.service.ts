@@ -85,7 +85,7 @@ export class UserService {
       id: 9,
       isAdmin: false,
       name: 'Ana',
-      email: 'Ana@email.com',
+      email: 'ana@email.com',
       password: '123456',
       cpf: '000-000-000-00',
       birthDate: '10/10/1990',

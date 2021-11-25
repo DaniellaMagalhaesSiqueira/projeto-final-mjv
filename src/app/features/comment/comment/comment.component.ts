@@ -42,6 +42,7 @@ export class CommentComponent implements OnInit {
     this.comment.article = this.article!.id;
     this.comment.comment = formValue.comment.value;
     this.commentService.createComment(this.comment);
+    // this.router.navigateByUrl(`article-detail/${this.article!.id}`);
     this.dialog.open(MessageDialogComponent, {
       data: {
         message: "O presente site não se responsabiliza por atos ilícitos de terceiros como injúria, calúnia ou difamação",

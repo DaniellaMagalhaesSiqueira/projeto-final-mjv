@@ -1,5 +1,10 @@
 # ChandraSurya
-
+Este projeto destina-se a implementação de um site esotérico com o objetivo de divulgar profissionais,
+ suas consultas e terapias e comunicar lives nos temas de esoterismo e ocultismo. 
+ ChandraSurya já funcionou em um espaço físico anteriormente e atualmente seus parceiros se encontram virtualmente,
+ mantendo os antigos estudos.
+ Futuramente pretende-se implementar jogos de tarô on-line e divulgação das lives sobre ufologia.
+ 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.12.
 
 ## Development server

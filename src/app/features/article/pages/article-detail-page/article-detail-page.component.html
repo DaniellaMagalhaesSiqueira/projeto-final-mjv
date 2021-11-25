@@ -4,10 +4,18 @@
         <app-article [article]="article"></app-article>
     </mat-card>
 </div>
-<div *ngIf="this.user">
-    <app-comment [article]="article"></app-comment>
+<div class="comments" *ngFor="let item of comments">
+    <textarea matInput type="text" disabled value="{{item.comment}}"></textarea>
 </div>
-<div *ngIf="!this.user">
+<div *ngIf="this.user" class="show-article">
+    <mat-form [formGroup]="commentForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Comente aqui</mat-label>
+            <input type="text" matInput formControlName="comment">
+        </mat-form-field>
+        <button mat-raised-button (click)="onSubmit()">Comentar</button>
+    </mat-form>
+</div>
+<div *ngIf="!this.user" class="hide-article">
     <p>Entre com e-mail e senha para fazer um comentário</p>
 </div>
-<app-footer></app-footer>
