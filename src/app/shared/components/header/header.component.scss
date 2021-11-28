@@ -1,82 +1,19 @@
-@import 'src/assets/styles/_colors.scss';
+.title {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 3rem;
+}
 
-
- .title {
-     font-style: italic;
-     font-weight: 400;
-     font-size: 34px;
- }
-
-
-   
-.mat-toolbar-row{
-    .pre-account{
+.mat-toolbar-row {
+    .pre-account {
         display: flex;
         flex-grow: 1;
     }
-    
 }
 
-.icon{
+button{
+    font-size: 1.2rem;
+}
+.icon {
     margin-bottom: 10px;
 }
-
-
-
-
-// ul{
-//     display: flex;
-//     // justify-content: flex-end;
-//     flex-flow: nowrap;
-//     font-family: 'Libre Baskerville';
-//     font-weight: 300;
-//     font-size: 16px;
-//     list-style: none;
-//     text-decoration: none;
-//     display: flex;
-//     width: 100%;
-//     border-bottom: black;
-//     li{
-//         cursor: pointer;
-//         padding: 20px;
-//     }
-//     li:hover{
-//         background: $cor-logo-azul;
-//         color: $cor-logo-amarela;
-//         border-radius: 15px;
-//     }
-//     li:hover ul{
-//         display: block;
-//         width: fit-content;
-//         .box{
-//             background: #ddd;
-//             color: black;
-//             border-radius: 15px;
-//         }
-//     }
-//     .logo{
-//         cursor: unset;
-//         width: 20%;
-//         display: flex;
-//         justify-content: center;
-//     }
-// }
-// .title{
-//     font-style: italic;
-//     font-size: 2.2rem;
-//     display: flex;
-//     justify-content: center;
-//     width: 100%;
-// }
-// .bottom-nav{
-//     border: 0;
-//     border-top: 1px solid black;
-// }
-// ul {
-//     li {
-//         ul{
-//     display: none;
-//     position: absolute;
-//         }
-//     }
-// }

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CommentComponent } from './comment.component';
+import { LayoutPageComponent } from './layout-page.component';
 
-describe('CommentComponent', () => {
-  let component: CommentComponent;
-  let fixture: ComponentFixture<CommentComponent>;
+describe('LayoutPageComponent', () => {
+  let component: LayoutPageComponent;
+  let fixture: ComponentFixture<LayoutPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CommentComponent ]
+      declarations: [ LayoutPageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CommentComponent);
+    fixture = TestBed.createComponent(LayoutPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

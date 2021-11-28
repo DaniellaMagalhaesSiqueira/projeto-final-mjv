@@ -1,8 +1,9 @@
 <div >
-    <ul>
+    <ul  class="article-list">
         <li>
-            <app-article-card *ngFor="let item of articles" [article]="item">
-                </app-article-card>
+            <div>               
+                <app-article-card *ngFor="let item of articles" [article]="item"></app-article-card>
+            </div>
         </li>
     </ul>
 </div>

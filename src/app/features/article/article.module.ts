@@ -22,8 +22,6 @@ import { CommentModule } from '../comment/comment.module';
     ArticleDetailPageComponent,
     AllArticlesPageComponent,
     CreateArticlePageComponent,
-
-
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,16 @@
+footer{
+    padding: 0;
+    margin: 0;
+    font-size: large;
+
+}
+.partners .site-map{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+} 
+.nav-footer{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(161, 179, 228);
+}

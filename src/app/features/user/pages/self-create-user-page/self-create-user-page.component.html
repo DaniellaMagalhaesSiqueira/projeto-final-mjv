@@ -1,4 +1,3 @@
-<app-header></app-header>
 <mat-card class="card-form">
     <h1>Cadastro</h1>
     <h4><i>Preencha o formulário para se cadastrar</i></h4>
@@ -13,7 +12,6 @@
             <input formControlName="email" matInput type="text">
             <mat-error *ngIf="userForm.invalid">Preencha um e-mail válido.</mat-error>
         </mat-form-field>
-
         <mat-form-field appearance="fill">
             <mat-label>CPF</mat-label>
             <input formControlName="cpf" matInput type="text" type="text" placeholder="000.000.000-00">

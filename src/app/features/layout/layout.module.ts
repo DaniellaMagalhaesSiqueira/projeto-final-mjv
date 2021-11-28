@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
 
 
 
 @NgModule({
   declarations: [
-
+    LayoutPageComponent
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     SharedModule,
-  ],
+    RouterModule
+  ]
 })
-export class CommentModule { }
+export class LayoutModule { }

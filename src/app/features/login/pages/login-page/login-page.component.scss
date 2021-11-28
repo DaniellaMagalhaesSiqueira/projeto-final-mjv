@@ -1,10 +1,8 @@
-@import 'src/assets/styles/_colors.scss';
-
-.error{
+.error {
     color: red;
 }
 
-.form-login{
+.form-login {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -13,5 +11,21 @@
     align-content: stretch;
     .mat-form-field {
         width: 400px;
+    }
+}
+
+mat-card {
+    font-size: 1.2rem;
+    width: 100%;
+    max-width: 50%;
+    margin: 20px auto;
+    .card-content {
+        width: 50%;
+        max-width: 50%;
+        height: auto;
+        margin-left: 50px;
+        button{
+            margin-top: 10px;
+        }
     }
 }

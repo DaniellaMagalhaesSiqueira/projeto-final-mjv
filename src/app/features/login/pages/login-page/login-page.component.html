@@ -1,21 +1,20 @@
-<app-header></app-header>
 <mat-card>
-    <h2>Login</h2>
-    <h4>Digite usuário e senha para entrar ou cadastre-se</h4>
-    <mat-form [formGroup]="loginForm" class="form-login">
-        <mat-form-field appearance="fill">
-            <mat-label>E-mail:</mat-label>
-            <input class="form-field" type="email" matInput type="text"
-                placeholder="Digite o e-mail" formControlName="email">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Senha:</mat-label>
-            <input class="form-field" type="password" matInput type="password"
-                placeholder="Digite a senha com mais de 6 dígitos"
-                formControlName="password">
-        </mat-form-field>
-        <mat-error *ngIf="loginForm.invalid" color="warn">Usuário/senha inválidos.</mat-error>
-        <button mat-raised-button [disabled]="loginForm.invalid" (click)="onSubmit()">Entrar</button>
-    </mat-form>
-
+    <div class="card-content">
+        <h2>Login</h2>
+        <h4>Digite usuário e senha para entrar ou cadastre-se</h4>
+        <mat-form [formGroup]="loginForm" class="form-login">
+            <mat-form-field appearance="fill">
+                <mat-label>E-mail:</mat-label>
+                <input class="form-field" type="email" matInput type="text" placeholder="Digite o e-mail"
+                    formControlName="email">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Senha:</mat-label>
+                <input class="form-field" type="password" matInput type="password"
+                    placeholder="Digite a senha com mais de 6 dígitos" formControlName="password">
+            </mat-form-field>
+            <mat-error *ngIf="error" color="warn">Usuário/senha inválidos.</mat-error>
+            <button mat-raised-button [disabled]="loginForm.invalid" (click)="onSubmit()">Entrar</button>
+        </mat-form>
+    </div>
 </mat-card>

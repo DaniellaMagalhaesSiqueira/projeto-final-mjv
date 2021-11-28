@@ -10,6 +10,7 @@ import { HomeModule } from './features/home/home.module';
 import { LoginModule } from './features/login/login.module';
 import { UserModule } from './features/user/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LayoutModule } from './features/layout/layout.module';
 
 
 registerLocaleData(localePt);
@@ -27,7 +28,7 @@ registerLocaleData(localePt);
     ConsultationModule,
     UserModule,
     BrowserAnimationsModule,
-    
+    LayoutModule,
   ],
   providers: [
     {

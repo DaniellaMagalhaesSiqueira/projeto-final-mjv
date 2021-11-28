@@ -1,27 +1,32 @@
 .article {
-    margin-top: 20px;
     width: 100%;
     display: flex;
     justify-content: center;
-    mat-card{
+    mat-card {
+        margin: 20px 0 40px 0;
 
         height: 100%;
     }
 }
-.show-article{
-    height: 50%;
+
+.comments,
+.hide-article {
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    textarea {
+        min-width: 500px;
+        font-size: 1.1rem;
+    }
 }
-.hide-article{
-    height: 50%;
-}
-mat-form{
-    margin-top: 20px;
+
+mat-form {
     display: flex;
     flex-direction: column;
-    mat-form-field{
+    mat-form-field {
         min-width: 800px;
     }
-    button{
+    button {
         max-width: 100px;
     }
     justify-content: center;
