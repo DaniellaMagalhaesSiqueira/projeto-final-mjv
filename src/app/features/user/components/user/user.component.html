@@ -5,8 +5,8 @@
         <p>Email: {{user?.email}}</p>   
         <mat-card-subtitle>{{user?.isAdmin ? 'Administrador' : 'Convidado'}}</mat-card-subtitle>
     </mat-card>
-    <button mat-button class="delete-user" (click)="removeUser(user?.id)">
+    <button mat-button class="delete-user" (click)="removeUser(user!.id)">
         Excluir Usuário
-        <mat-icon color='warn' >delete</mat-icon>
+        <mat-icon color='warn'>delete</mat-icon>
     </button>
 </div>

@@ -14,7 +14,6 @@ import { ActionDialogComponent } from './dialogs/action-dialog/action-dialog.com
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { CpfPipe } from './pipes/cpf.pipe';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AccountComponent } from './components/account/account/account.component';
 import { ManagerComponent } from './components/manager/manager/manager.component';
@@ -49,14 +48,9 @@ const components = [
  
 ];
 
-const pipes = [
-  CpfPipe,
-];
-
 @NgModule({
   declarations: [
     ...components,
-    ...pipes,
     MessageDialogComponent,
     ActionDialogComponent,
     AccountComponent,
@@ -74,8 +68,6 @@ const pipes = [
   exports: [
     ...components,
     ...materialModules,
-
-    CpfPipe,
   ]
 })
 export class SharedModule { }
