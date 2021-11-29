@@ -9,12 +9,14 @@ import { UserService } from '../../services/user.service';
 })
 export class UsersListComponent implements OnInit {
 
-  users: Array<User> = [];
+  users!: Array<User>;
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     //mostrará apenas os usuários admin
-    this.users = this.userService.getUsers().filter((user) => user.isAdmin === true );
+    this.userService.getUsers().subscribe(res => this.users = res)
+    this.users = this.users.filter((user) => user.isAdmin === true);
+    console.log(this.userService.getUsers());
   }
 
 }

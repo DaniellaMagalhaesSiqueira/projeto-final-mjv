@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/features/user/models/user.model';
+import { UserService } from 'src/app/features/user/services/user.service';
 
 @Component({
   selector: 'app-manager',
@@ -9,14 +10,17 @@ import { User } from 'src/app/features/user/models/user.model';
 })
 export class ManagerComponent implements OnInit {
 
-  user?: User;
+  user?: User | null;
 
-  constructor() { }
+  constructor(
+    private userService: UserService,
+  ) { }
 
   ngOnInit(): void {
-    const userStorage = sessionStorage.getItem('user');
-    if(userStorage){
-      this.user = JSON.parse(userStorage);
+    // const userStorage = sessionStorage.getItem('user');
+    if(this.userService.logedUser){
+      // this.user = JSON.parse(userStorage);
+      this.userService.logedUser.asObservable().subscribe(res => this.user = res);
     }
   }
 

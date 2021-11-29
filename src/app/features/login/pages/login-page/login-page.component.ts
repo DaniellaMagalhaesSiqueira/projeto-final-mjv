@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/features/user/models/user.model';
 import { UserService } from 'src/app/features/user/services/user.service';
 
 @Component({
@@ -34,7 +35,9 @@ export class LoginPageComponent implements OnInit {
     if(!user){
       this.error = true;
     }else{
-      sessionStorage.setItem('user', JSON.stringify(user));
+      // sessionStorage.setItem('user', JSON.stringify(user));
+      this.userService.logedUser.next(user);
+      // console.log(this.userService.logedUser);
       this.router.navigateByUrl('home');
     }
   }

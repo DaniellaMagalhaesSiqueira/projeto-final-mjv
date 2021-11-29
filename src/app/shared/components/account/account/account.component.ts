@@ -11,21 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountComponent implements OnInit {
 
-  user?: User
+  user?: User | null;
   constructor(
     private router: Router,
     private userService: UserService,
     ) { }
 
   ngOnInit(): void {
-    const userStorage = sessionStorage.getItem('user');
-    if(userStorage){
-      this.user = JSON.parse(userStorage);
+    // const userStorage = sessionStorage.getItem('user');
+    if(this.userService.logedUser){
+      // this.user = JSON.parse(userStorage);
+      this.userService.logedUser.asObservable().subscribe(res => this.user = res);
     }
   }
 
   logout(){
     sessionStorage.clear();
+    this.userService.logedUser.next(null);
     this.router.navigateByUrl('login');
   }
 }

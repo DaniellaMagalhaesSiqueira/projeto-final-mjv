@@ -13,8 +13,9 @@ import { ActivatedRoute } from '@angular/router';
 export class UserComponent implements OnInit {
 
   @Input()
-  user?: User;
+  user!: User;
 
+  users?: Array<User>;
   constructor(
     private userService: UserService, 
     public dialog: MatDialog,
@@ -23,7 +24,7 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  removeUser(id: number): void {
+  deleteUser(id: number): void {
     const dialogRef = this.dialog.open(ActionDialogComponent, {
       width: '300px',
       data: {
@@ -34,6 +35,9 @@ export class UserComponent implements OnInit {
     console.log(`Dialog result:${result}`);
       if (result) {
         this.userService.removeUser(id);
+      
+        // this.userService.getUsers().subscribe(res => this.users = res)
+        // this.users = this.users.filter((user) => user.isAdmin === true);
       }
     });
   }

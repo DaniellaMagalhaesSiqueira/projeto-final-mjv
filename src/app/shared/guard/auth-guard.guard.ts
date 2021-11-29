@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { User } from 'src/app/features/user/models/user.model';
+import { UserService } from 'src/app/features/user/services/user.service';
 
 
 @Injectable({
@@ -9,14 +10,16 @@ import { User } from 'src/app/features/user/models/user.model';
 })
 export class AuthGuardGuard implements CanActivate {
 
-  constructor(private router: Router){}
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    ){}
 
-  user?: User;
+  user?: User | null;
   canActivate(): boolean {
-    const userStorage = sessionStorage.getItem('user');
-    
-    if(userStorage){
-      this.user = JSON.parse(userStorage);
+    // ao invés de pegar da storage é pego da service da vaiável logedUser que será modificada agora com o logout
+    this.user = this.userService.logedUser.value;
+    if(this.user){
       if(this.user!.isAdmin){
         return true;
       }
