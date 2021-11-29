@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Comment } from 'src/app/features/comment/models/comment.model';
 import { CommentService } from 'src/app/features/comment/services/comment.service';
 import { User } from 'src/app/features/user/models/user.model';
+import { UserService } from 'src/app/features/user/services/user.service';
 import { MessageDialogComponent } from 'src/app/shared/dialogs/message-dialog/message-dialog.component';
 import { Article } from '../../models/article.model';
 import { ArticleService } from '../../services/article.service';
@@ -15,7 +16,7 @@ import { ArticleService } from '../../services/article.service';
 })
 export class ArticleDetailPageComponent implements OnInit {
 
-  user?: User;
+  user!: User;
   article?: Article;
   comment: Comment = this.commentService.getDefaultComment();
   comments?: Array<Comment>;
@@ -27,6 +28,7 @@ export class ArticleDetailPageComponent implements OnInit {
     private commentService: CommentService,
     private dialog: MatDialog,
     private router: Router,
+    private userService: UserService,
   ) { }
 
 
@@ -35,10 +37,13 @@ export class ArticleDetailPageComponent implements OnInit {
     this.commentForm = this.formBuilder.group({
       comment: [''],
     })
-    sessionStorage.setItem('article', JSON.stringify(this.article));
-    const userStorage = sessionStorage.getItem('user');
-    if(userStorage){
-      this.user = JSON.parse(userStorage);
+    // sessionStorage.setItem('article', JSON.stringify(this.article));
+    // const userStorage = sessionStorage.getItem('user');
+    // if(userStorage){
+    //   this.user = JSON.parse(userStorage);
+    // }
+    if(this.userService.logedUser.value){
+      this.user = this.userService.logedUser.value;
     }
     this.activatedRoute.params.subscribe((params) => {
       const article = this.articleService.getById(parseInt(params.id));

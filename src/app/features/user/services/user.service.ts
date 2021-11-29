@@ -141,9 +141,9 @@ export class UserService {
     return this.users;
   }
 
-  removeUser(id: number) {
+  removeUser(id: number){
      this.users = this.users.filter((u) => u.id !== id);
-   
+     return this.users;
   }
 
   getUserById(id: number){

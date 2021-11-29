@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActionDialogComponent } from 'src/app/shared/dialogs/action-dialog/action-dialog.component';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable, of, Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-user',
@@ -17,14 +18,19 @@ export class UserComponent implements OnInit {
 
   users?: Array<User>;
   constructor(
-    private userService: UserService, 
+    private userService: UserService,
     public dialog: MatDialog,
-    ) { }
+  ) { }
+
+
+  getUsers() {
+    this.userService.getUsers().subscribe(users => this.users = users)
+  }
 
   ngOnInit(): void {
   }
 
-  deleteUser(id: number): void {
+  deleteUser(id: number) {
     const dialogRef = this.dialog.open(ActionDialogComponent, {
       width: '300px',
       data: {
@@ -32,12 +38,10 @@ export class UserComponent implements OnInit {
       },
     });
     dialogRef.afterClosed().subscribe(result => {
-    console.log(`Dialog result:${result}`);
+      console.log(`Dialog result:${result}`);
       if (result) {
-        this.userService.removeUser(id);
-      
-        // this.userService.getUsers().subscribe(res => this.users = res)
-        // this.users = this.users.filter((user) => user.isAdmin === true);
+        this.users = this.userService.removeUser(id);
+        this.getUsers();
       }
     });
   }

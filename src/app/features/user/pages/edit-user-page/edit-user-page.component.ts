@@ -33,10 +33,8 @@ export class EditUserPageComponent implements OnInit {
   
   
   ngOnInit(): void {
-    const userStorage = sessionStorage.getItem('user');
-    //a verificação se tem um usuário já é feita em account
-    if(userStorage){
-      this.user = JSON.parse(userStorage);
+    if(this.userService.logedUser.value){
+      this.user = this.userService.logedUser.value;
     }
     this.editUserForm = this.formBuilder.group ({
       name: new FormControl(this.user.name, [Validators.required]),
