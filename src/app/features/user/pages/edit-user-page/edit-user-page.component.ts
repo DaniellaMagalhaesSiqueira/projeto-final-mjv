@@ -33,8 +33,8 @@ export class EditUserPageComponent implements OnInit {
   
   
   ngOnInit(): void {
-    if(this.userService.logedUser.value){
-      this.user = this.userService.logedUser.value;
+    if(this.userService.getLoggedUser()){
+      this.user = this.userService.getLoggedUser()!;
     }
     this.editUserForm = this.formBuilder.group ({
       name: new FormControl(this.user.name, [Validators.required]),

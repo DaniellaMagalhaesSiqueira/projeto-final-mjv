@@ -125,6 +125,10 @@ export class UserService {
     return this.loggedUser.getValue();
   }
 
+  editLoggedUser(user: User | null){
+    this.loggedUser.next(user);
+  }
+
   getUserStream(): Observable<User[]>{
     return this.users.asObservable();
   }

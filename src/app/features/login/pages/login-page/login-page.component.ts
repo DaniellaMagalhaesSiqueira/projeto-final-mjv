@@ -36,7 +36,7 @@ export class LoginPageComponent implements OnInit {
       this.error = true;
     }else{
       // sessionStorage.setItem('user', JSON.stringify(user));
-      this.userService.logedUser.next(user);
+      this.userService.editLoggedUser(user);
       // console.log(this.userService.logedUser);
       this.router.navigateByUrl('home');
     }

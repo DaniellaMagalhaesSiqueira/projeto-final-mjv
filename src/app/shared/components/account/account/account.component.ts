@@ -19,15 +19,15 @@ export class AccountComponent implements OnInit {
 
   ngOnInit(): void {
     // const userStorage = sessionStorage.getItem('user');
-    if(this.userService.logedUser){
+    if(this.userService.getLoggedUser()){
       // this.user = JSON.parse(userStorage);
-      this.userService.logedUser.asObservable().subscribe(res => this.user = res);
+      this.user = this.userService.getLoggedUser();
     }
   }
 
   logout(){
     sessionStorage.clear();
-    this.userService.logedUser.next(null);
+    this.userService.editLoggedUser(null);
     this.router.navigateByUrl('login');
   }
 }

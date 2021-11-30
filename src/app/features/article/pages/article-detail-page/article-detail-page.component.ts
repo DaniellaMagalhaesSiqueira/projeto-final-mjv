@@ -16,7 +16,7 @@ import { ArticleService } from '../../services/article.service';
 })
 export class ArticleDetailPageComponent implements OnInit {
 
-  user!: User;
+  user!: User | null;
   article?: Article;
   comment: Comment = this.commentService.getDefaultComment();
   comments?: Array<Comment>;
@@ -42,8 +42,8 @@ export class ArticleDetailPageComponent implements OnInit {
     // if(userStorage){
     //   this.user = JSON.parse(userStorage);
     // }
-    if(this.userService.logedUser.value){
-      this.user = this.userService.logedUser.value;
+    if(this.userService.getLoggedUser()){
+      this.user = this.userService.getLoggedUser();
     }
     this.activatedRoute.params.subscribe((params) => {
       const article = this.articleService.getById(parseInt(params.id));

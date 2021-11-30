@@ -17,9 +17,9 @@ export class AuthGuardGuard implements CanActivate {
 
   user!: User;
   canActivate(): boolean {
-    // ao invés de pegar da storage é pego da service da vaiável logedUser que será modificada agora com o logout
-    if(this.userService.logedUser.value){
-      this.user = this.userService.logedUser.value;
+    // ao invés de pegar da storage é pego da service da variável logedUser que será modificada agora com o logout
+    if(this.userService.getLoggedUser()){
+      this.user = this.userService.getLoggedUser()!;
       if(this.user.isAdmin){
         return true;
       }

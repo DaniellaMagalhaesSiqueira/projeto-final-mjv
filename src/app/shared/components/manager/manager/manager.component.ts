@@ -18,9 +18,9 @@ export class ManagerComponent implements OnInit {
 
   ngOnInit(): void {
     // const userStorage = sessionStorage.getItem('user');
-    if(this.userService.logedUser){
+    if(this.userService.getLoggedUser()){
       // this.user = JSON.parse(userStorage);
-      this.userService.logedUser.asObservable().subscribe(res => this.user = res);
+      this.user = this.userService.getLoggedUser();
     }
   }
 
