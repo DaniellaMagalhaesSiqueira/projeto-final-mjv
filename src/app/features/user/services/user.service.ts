@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, filter, Observable } from 'rxjs';
+import { BehaviorSubject, filter, map, Observable } from 'rxjs';
 import { User } from './../models/user.model';
 import { of } from 'rxjs';
 
@@ -12,7 +12,7 @@ export class UserService {
 
   logedUser = new BehaviorSubject<User | null> (null);
 
-  users: Array<User> = [
+  users: Observable<User[]> = of([
     {
       id: 1,
       isAdmin: true,
@@ -112,13 +112,13 @@ export class UserService {
     //   cpf: '000-000-000-00',
     //   birthDate: '10/10/1990',
     // },
-  ];
+  ]);
 
 
   constructor( ) { }
 
   getUsers(): Observable<User[]>{
-    return of(this.users);
+    return this.users;
   }
 
   getDefaultUser(): User{
@@ -132,26 +132,40 @@ export class UserService {
       birthDate: '10/10/1990',
     };  
   }
-  generateNextId(): number {
-    return this.users[(this.users.length - 1)].id + 1;
+  generateNextId(): number{
+    let users: Array<User> = [];
+    this.users.subscribe(us=> users = us);
+    return users[(users?.length - 1)].id + 1;
+
+    //return this.user[(this.user.length - 1)].id + 1;
+
   }
 
   createUser(user: User){
-    this.users.push(user);
-    return this.users;
+    // this.users.push(user);
+    return this.users.subscribe(users => users.push(user));
   }
 
-  removeUser(id: number){
-     this.users = this.users.filter((u) => u.id !== id);
-     return this.users;
+  removeUser(id: number): Observable<User[]>{
+    //  this.users = this.users.filter((u) => u.id !== id);
+    
+    return this.users.pipe(
+      map(users => users.filter((u)=> u.id !== id))
+    );
   }
 
   getUserById(id: number){
-    return this.users.find((user) => user.id === Number(id));
+    let user: User | undefined = this.getDefaultUser();
+    // return this.users.find((user) => user.id === Number(id));
+    this.users.subscribe(users => user = users.find((u) => u.id === Number(id)));
+    return user;
   }
 
   getUserByEmailAndPassword(email: string | undefined, password: string | undefined) {
-    return this.users.find((user) => user.email === email && user.password === password);
+    let user: User | undefined = this.getDefaultUser();
+    this.users.subscribe(users => user = users.find((u) => u.email === email && u.password === password));
+    // return this.users.find((user) => user.email === email && user.password === password);
+    return user;
   }
 
   editUser(user: User){

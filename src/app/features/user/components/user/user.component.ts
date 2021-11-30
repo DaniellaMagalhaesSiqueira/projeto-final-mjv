@@ -40,8 +40,7 @@ export class UserComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result:${result}`);
       if (result) {
-        this.users = this.userService.removeUser(id);
-        this.getUsers();
+        this.userService.removeUser(id).subscribe(console.log);
       }
     });
   }
