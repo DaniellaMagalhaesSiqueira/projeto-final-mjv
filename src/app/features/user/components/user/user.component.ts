@@ -23,10 +23,6 @@ export class UserComponent implements OnInit {
   ) { }
 
 
-  getUsers() {
-    this.userService.getUsers().subscribe(users => this.users = users)
-  }
-
   ngOnInit(): void {
   }
 
@@ -40,7 +36,7 @@ export class UserComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result:${result}`);
       if (result) {
-        this.userService.removeUser(id).subscribe(console.log);
+        this.userService.removeUser(id);
       }
     });
   }

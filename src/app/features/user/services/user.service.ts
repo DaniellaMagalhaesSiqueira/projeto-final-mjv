@@ -10,9 +10,9 @@ import { of } from 'rxjs';
 })
 export class UserService {
 
-  logedUser = new BehaviorSubject<User | null> (null);
+  private loggedUser = new BehaviorSubject<User | null> (null);
 
-  users: Observable<User[]> = of([
+  private users = new BehaviorSubject<User[]>([
     {
       id: 1,
       isAdmin: true,
@@ -117,8 +117,20 @@ export class UserService {
 
   constructor( ) { }
 
-  getUsers(): Observable<User[]>{
-    return this.users;
+  getUsers(): User[]{
+    return this.users.getValue();
+  }
+
+  getLoggedUser(): User | null {
+    return this.loggedUser.getValue();
+  }
+
+  getUserStream(): Observable<User[]>{
+    return this.users.asObservable();
+  }
+
+  getLoggedUserStream(): Observable<User | null>{
+    return this.loggedUser.asObservable();
   }
 
   getDefaultUser(): User{
@@ -133,9 +145,8 @@ export class UserService {
     };  
   }
   generateNextId(): number{
-    let users: Array<User> = [];
-    this.users.subscribe(us=> users = us);
-    return users[(users?.length - 1)].id + 1;
+
+    return this.getUsers()[(this.getUsers().length - 1)].id + 1;
 
     //return this.user[(this.user.length - 1)].id + 1;
 
@@ -146,30 +157,42 @@ export class UserService {
     return this.users.subscribe(users => users.push(user));
   }
 
-  removeUser(id: number): Observable<User[]>{
+  removeUser(id: number){
+
+    this.users.next(this.getUsers().filter((u)=> u.id !== id));
     //  this.users = this.users.filter((u) => u.id !== id);
     
-    return this.users.pipe(
-      map(users => users.filter((u)=> u.id !== id))
-    );
+    // return this.users.pipe(
+    //   map(users => users.filter((u)=> u.id !== id))
+    // );
   }
 
-  getUserById(id: number){
-    let user: User | undefined = this.getDefaultUser();
+  getUserById(id: number): User | undefined {
+    // let user: User | undefined = this.getDefaultUser();
     // return this.users.find((user) => user.id === Number(id));
-    this.users.subscribe(users => user = users.find((u) => u.id === Number(id)));
-    return user;
+    // this.users.subscribe(users => user = users.find((u) => u.id === Number(id)));
+    // return user;
+    return this.getUsers().find((u) => u.id === Number(id));
   }
 
   getUserByEmailAndPassword(email: string | undefined, password: string | undefined) {
-    let user: User | undefined = this.getDefaultUser();
-    this.users.subscribe(users => user = users.find((u) => u.email === email && u.password === password));
+    // let user: User | undefined = this.getDefaultUser();
+    // this.users.subscribe(users => user = users.find((u) => u.email === email && u.password === password));
     // return this.users.find((user) => user.email === email && user.password === password);
-    return user;
+    return this.getUsers().find((user) => user.email === email && user.password === password);
   }
 
   editUser(user: User){
+    const editedUser = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+      password: user.password,
+      cpf: user.cpf,
+      birthDate: user.birthDate,
+    };  
     this.removeUser(user.id);
-    this.createUser(user);
+    this.createUser(editedUser);
   }
 }

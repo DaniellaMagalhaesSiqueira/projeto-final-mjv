@@ -14,9 +14,8 @@ export class UsersListComponent implements OnInit {
 
   ngOnInit(): void {
     //mostrará apenas os usuários admin
-    this.userService.getUsers().subscribe(res => this.users = res)
-    this.users = this.users.filter((user) => user.isAdmin === true);
-    console.log(this.userService.getUsers());
+    // this.userService.getUsers().subscribe(res => this.users = res)
+    this.users = this.userService.getUsers().filter((u) => u.isAdmin === true);
   }
 
 }
