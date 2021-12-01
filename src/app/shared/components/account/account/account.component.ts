@@ -15,13 +15,19 @@ export class AccountComponent implements OnInit {
   constructor(
     private router: Router,
     private userService: UserService,
-    ) { }
+    ) {
+      this.userService.getLoggedUserStream().subscribe((user) =>{
+        this.user = user;
+      });
+     }
 
   ngOnInit(): void {
     // const userStorage = sessionStorage.getItem('user');
     if(this.userService.getLoggedUser()){
       // this.user = JSON.parse(userStorage);
       this.user = this.userService.getLoggedUser();
+      this.userService.getLoggedUserStream().subscribe();
+
     }
   }
 

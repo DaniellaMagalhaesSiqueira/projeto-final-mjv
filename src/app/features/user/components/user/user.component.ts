@@ -20,7 +20,11 @@ export class UserComponent implements OnInit {
   constructor(
     private userService: UserService,
     public dialog: MatDialog,
-  ) { }
+  ) { 
+    this.userService.getUsersStream().subscribe((users) =>{
+      this.users = users;
+    });
+  }
 
 
   ngOnInit(): void {

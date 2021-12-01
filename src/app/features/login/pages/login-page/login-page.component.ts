@@ -35,9 +35,9 @@ export class LoginPageComponent implements OnInit {
     if(!user){
       this.error = true;
     }else{
-      // sessionStorage.setItem('user', JSON.stringify(user));
+      sessionStorage.setItem('user', JSON.stringify(user));
       this.userService.editLoggedUser(user);
-      // console.log(this.userService.logedUser);
+      console.log(this.userService.getLoggedUser());
       this.router.navigateByUrl('home');
     }
   }

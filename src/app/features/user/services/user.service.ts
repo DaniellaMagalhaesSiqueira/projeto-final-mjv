@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, filter, map, Observable } from 'rxjs';
 import { User } from './../models/user.model';
-import { of } from 'rxjs';
-
 
 
 @Injectable({
@@ -122,6 +120,10 @@ export class UserService {
   }
 
   getLoggedUser(): User | null {
+    const userStorage = sessionStorage.getItem('user');
+    if(userStorage){
+      this.loggedUser.next(JSON.parse(userStorage));
+    }
     return this.loggedUser.getValue();
   }
 
@@ -129,7 +131,7 @@ export class UserService {
     this.loggedUser.next(user);
   }
 
-  getUserStream(): Observable<User[]>{
+  getUsersStream(): Observable<User[]>{
     return this.users.asObservable();
   }
 
@@ -162,13 +164,8 @@ export class UserService {
   }
 
   removeUser(id: number){
-
     this.users.next(this.getUsers().filter((u)=> u.id !== id));
-    //  this.users = this.users.filter((u) => u.id !== id);
-    
-    // return this.users.pipe(
-    //   map(users => users.filter((u)=> u.id !== id))
-    // );
+    return this.users;
   }
 
   getUserById(id: number): User | undefined {
