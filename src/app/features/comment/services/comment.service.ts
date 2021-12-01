@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../../user/models/user.model';
-import { UserService } from '../../user/services/user.service';
+import { BehaviorSubject } from 'rxjs';
 import { Comment } from '../models/comment.model';
 
 @Injectable({
@@ -8,7 +7,7 @@ import { Comment } from '../models/comment.model';
 })
 export class CommentService {
 
-  comments: Array<Comment> = [
+  private comments = new BehaviorSubject<Comment[]> ([
     {
       id:1,
       user: "Joana",
@@ -30,17 +29,20 @@ export class CommentService {
       article: 5,
       comment: "Comentário da Ionne ao artigo 5",
     },
-  ];
+  ]);
   constructor(
-    private userService: UserService,
   ) { }
 
-  getComments(): Array<Comment>{
-    return this.comments;
+  getComments(){
+    return this.comments.getValue();
+  }
+
+  getCommentStream(){
+    return this.comments.asObservable();
   }
 
   generatedNextId(): number{
-    return this.comments[(this.comments.length -1)].id + 1;
+    return this.getComments()[(this.getComments().length -1)].id + 1;
   }
   getDefaultComment():Comment{
     return {
@@ -53,8 +55,9 @@ export class CommentService {
   }
 
   createComment(comment: Comment){
-    this.comments.push(comment);
-    return this.comments;
+    this.getComments().push(comment);
+    this.comments.next(this.getComments());
+    // return this.comments;
   }
 
 

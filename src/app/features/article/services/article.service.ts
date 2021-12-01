@@ -1,5 +1,6 @@
 
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Article } from '../models/article.model';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { Article } from '../models/article.model';
 })
 export class ArticleService {
 
-  articles: Array<Article> = [
+  private articles = new BehaviorSubject<Article[]>([
     {
       id: 1,
       author: "Vera Lúcia",
@@ -53,19 +54,23 @@ export class ArticleService {
       theme: "Astrologia",
       imageUrl: 'https://media-manager.noticiasaominuto.com/1920/naom_606a3713a9e25.jpg',
     },
-  ]
+  ]);
   constructor() { }
 
   geterateNextId(): number{
-    return this.articles[(this.articles.length - 1)].id + 1;
+    return this.getArticles()[(this.getArticles().length - 1)].id + 1;
   }
 
   getArticles(){
-    return this.articles;
+    return this.articles.getValue();
+  }
+
+  getArticlesStream(): Observable<Article[]>{
+    return this.articles.asObservable();
   }
 
   getById(id: number){
-    return this.articles.find((article) => article.id === id);
+    return this.getArticles().find((article) => article.id === id);
   }
 
   getDefaultArticle(): Article{
@@ -80,15 +85,15 @@ export class ArticleService {
     }
   }
   createArticle(article: Article){
-    this.articles.push(article);
-    return this.articles;
+    this.getArticles().push(article);
+    return this.getArticles();
   }
 
   removeArticleById(id: number){
-    const findedArticle = this.articles.findIndex((article) => article.id === id);
-    if(findedArticle) this.articles.splice(findedArticle, 1);
+    const findedArticle = this.getArticles().findIndex((article) => article.id === id);
+    if(findedArticle) this.getArticles().splice(findedArticle, 1);
   }
   getByIndex(index: number){
-    return this.articles[index];
+    return this.getArticles()[index];
   }
 }

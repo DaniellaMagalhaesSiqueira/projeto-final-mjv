@@ -11,7 +11,7 @@ import { ArticleService } from '../../services/article.service';
 export class ArticleListComponent implements OnInit {
 
   articles: Array<Article> = [];
-  constructor( private articleService: ArticleService) { }
+  constructor( private articleService: ArticleService) {}
 
   ngOnInit(): void {
     this.articles = this.articleService.getArticles().reverse();

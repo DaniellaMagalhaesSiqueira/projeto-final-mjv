@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
 })
 export class EditUserPageComponent implements OnInit {
 
-  user!: User;
+  user: User | null = this.userService.getLoggedUser();
 
   editUserForm!: FormGroup;
   
@@ -28,36 +28,39 @@ export class EditUserPageComponent implements OnInit {
     private dialog: MatDialog,
     private router: Router,
     ) { 
+      this.userService.getLoggedUserStream().subscribe((loggedUser) =>{
+        this.user = loggedUser;
+      });
+
   }
 
   
   
   ngOnInit(): void {
-    if(this.userService.getLoggedUser()){
-      this.user = this.userService.getLoggedUser()!;
-    }
+
     this.editUserForm = this.formBuilder.group ({
-      name: new FormControl(this.user.name, [Validators.required]),
-      email: new FormControl(this.user.email, [Validators.required]),
-      password: new FormControl(this.user.password, [Validators.required]),
-      confirmPassword: new FormControl(this.user.password , [Validators.required]),
-      cpf: new FormControl(this.user.cpf),
-      birthDate: new FormControl(formatDate(this.user.birthDate, 'yyyy-MM-dd', 'en')),
+      name: new FormControl(this.user!.name, [Validators.required]),
+      email: new FormControl(this.user!.email, [Validators.required]),
+      password: new FormControl(this.user!.password, [Validators.required]),
+      confirmPassword: new FormControl(this.user!.password , [Validators.required]),
+      cpf: new FormControl(this.user!.cpf),
+      birthDate: new FormControl(formatDate(this.user!.birthDate, 'yyyy-MM-dd', 'en')),
     },
     {
       validator: MustMatch('password', 'confirmPassword')
     });
-    console.log(moment(this.user.birthDate).toDate());
-    console.log(formatDate(this.user.birthDate, 'yyyy-MM-dd', 'en'));
+    console.log(moment(this.user!.birthDate).toDate());
+    console.log(formatDate(this.user!.birthDate, 'yyyy-MM-dd', 'en'));
   }
 
   onSubmit(){
     const formValue = this.editUserForm.value;
-    this.user.name = formValue.name;
-    this.user.email = formValue.email;
-    this.user.cpf = formValue.cpf;
-    this.user.password = formValue.password;
-    this.user.birthDate = formatDate(formValue.birthDate, 'yyyy-MM-dd', 'en');
+    this.user!.name = formValue.name;
+    this.user!.email = formValue.email;
+    this.user!.cpf = formValue.cpf;
+    this.user!.password = formValue.password;
+    this.user!.birthDate = formatDate(formValue.birthDate, 'yyyy-MM-dd', 'en');
+    this.userService.editUser(this.user!);
      this.dialog.open(MessageDialogComponent, {
        data: {
          message: 'Por favor, faça novamente seu login.',
@@ -65,6 +68,7 @@ export class EditUserPageComponent implements OnInit {
        }
      });
     sessionStorage.clear();
+    this.userService.editLoggedUser(null);
     this.router.navigateByUrl('/home');
   }
 }

@@ -22,9 +22,7 @@ export class AccountComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    // const userStorage = sessionStorage.getItem('user');
     if(this.userService.getLoggedUser()){
-      // this.user = JSON.parse(userStorage);
       this.user = this.userService.getLoggedUser();
       this.userService.getLoggedUserStream().subscribe();
 
@@ -34,6 +32,6 @@ export class AccountComponent implements OnInit {
   logout(){
     sessionStorage.clear();
     this.userService.editLoggedUser(null);
-    this.router.navigateByUrl('login');
+    this.router.navigateByUrl('home');
   }
 }

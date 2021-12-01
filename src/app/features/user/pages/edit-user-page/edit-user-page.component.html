@@ -18,7 +18,7 @@
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Data de Nascimento</mat-label>
-            <input matInput type="date" value="{{ user.birthDate | date:'yyyy-MM-dd' }}">
+            <input matInput type="date" value="{{ user!.birthDate | date:'yyyy-MM-dd' }}">
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Senha</mat-label>

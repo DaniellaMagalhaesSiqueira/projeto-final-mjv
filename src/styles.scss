@@ -13,34 +13,10 @@ $custom-theme: mat-light-theme($custom-app-primary, $custom-app-secondary, $cust
 html, body { height: 100% }
 body, .mat-typography { 
   font-family: 'Libre Baskerville'; 
-//   background: url("/assets/images/universo.png") no-repeat bottom center scroll;
-//   background-position: 30% 45%;
-//   background-size: cover;
 }
 
 * {
   font-family: 'Libre Baskerville';
-}
-@font-face {
-    font-family: 'Libre Baskerville';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-  src: url(\assets\fonts\librebaskerville-bold-webfont.woff);
-}
-@font-face {
-  font-family: 'Libre Baskerville';
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: url(\assets\fonts\librebaskerville-italic-webfont.woff);
-}
-@font-face {
-  font-family: 'Libre Baskerville';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(\assets\fonts\librebaskerville-regular-webfont.woff);
 }
 
 h1 *{

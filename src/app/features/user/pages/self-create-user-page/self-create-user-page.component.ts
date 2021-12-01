@@ -67,7 +67,6 @@ export class SelfCreateUserPageComponent implements OnInit {
        }
      });
     this.router.navigateByUrl('/login');
-  //TODO: usar text-mask 
    
 
   }

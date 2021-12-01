@@ -17,7 +17,7 @@ export class UserService {
       name: 'Ionne',
       email: 'ionne@email.com',
       password: '123456',
-      cpf: '000-000-000-00',
+      cpf: '000.000.000-00',
       birthDate: '10/10/1990',
     },
     {
@@ -26,7 +26,7 @@ export class UserService {
       name: 'Vera Lúcia',
       email: 'veralucia@email.com',
       password: '123456',
-      cpf: '000-000-000-00',
+      cpf: '000.000.000-00',
       birthDate: '10/10/1990',
     },
     {
@@ -35,7 +35,7 @@ export class UserService {
       name: 'Joana',
       email: 'joana@email.com',
       password: '123456',
-      cpf: '000-000-000-00',
+      cpf: '000.000.000-00',
       birthDate: '10/10/1990',
     },
     {
@@ -44,7 +44,7 @@ export class UserService {
       name: 'Daniella',
       email: 'daniella@email.com',
       password: '123456',
-      cpf: '123.123.123-12',
+      cpf: '000.000.000-00',
       birthDate: '10/10/1990',
     },
     {
@@ -53,63 +53,9 @@ export class UserService {
       name: 'Teste Admin',
       email: 'teste@email.com',
       password: '123456',
-      cpf: '000-000-000-00',
+      cpf: '000.000.000-00',
       birthDate: '10/10/1990',
     },
-    // {
-    //   id: 6,
-    //   isAdmin: false,
-    //   name: 'Maria',
-    //   email: 'maria@email.com',
-    //   password: '123456',
-    //   cpf: '000-000-000-00',
-    //   birthDate: '10/10/1990',
-    // },
-    // {
-    //   id: 7,
-    //   isAdmin: true,
-    //   name: 'Ionne',
-    //   email: 'ionne@email.com',
-    //   password: '123456',
-    //   cpf: '000-000-000-00',
-    //   birthDate: '10/10/1990',
-    // },
-    // {
-    //   id: 8,
-    //   isAdmin: true,
-    //   name: 'Vera Lúcia',
-    //   email: 'veraluciae@email.com',
-    //   password: '123456',
-    //   cpf: '000-000-000-00',
-    //   birthDate: '10/10/1990',
-    // },
-    // {
-    //   id: 9,
-    //   isAdmin: false,
-    //   name: 'Ana',
-    //   email: 'ana@email.com',
-    //   password: '123456',
-    //   cpf: '000-000-000-00',
-    //   birthDate: '10/10/1990',
-    // },
-    // {
-    //   id: 10,
-    //   isAdmin: true,
-    //   name: 'Ionne',
-    //   email: 'ionne@email.com',
-    //   password: '123456',
-    //   cpf: '000-000-000-00',
-    //   birthDate: '10/10/1990',
-    // },
-    // {
-    //   id: 11,
-    //   isAdmin: true,
-    //   name: 'Vera Lúcia',
-    //   email: 'veraluciae@email.com',
-    //   password: '123456',
-    //   cpf: '000-000-000-00',
-    //   birthDate: '10/10/1990',
-    // },
   ]);
 
 
@@ -151,16 +97,12 @@ export class UserService {
     };  
   }
   generateNextId(): number{
-
     return this.getUsers()[(this.getUsers().length - 1)].id + 1;
-
-    //return this.user[(this.user.length - 1)].id + 1;
-
   }
 
   createUser(user: User){
-    // this.users.push(user);
-    return this.users.subscribe(users => users.push(user));
+    this.getUsers().push(user);
+    this.users.next(this.getUsers())
   }
 
   removeUser(id: number){
@@ -177,9 +119,7 @@ export class UserService {
   }
 
   getUserByEmailAndPassword(email: string | undefined, password: string | undefined) {
-    // let user: User | undefined = this.getDefaultUser();
-    // this.users.subscribe(users => user = users.find((u) => u.email === email && u.password === password));
-    // return this.users.find((user) => user.email === email && user.password === password);
+
     return this.getUsers().find((user) => user.email === email && user.password === password);
   }
 
@@ -195,5 +135,6 @@ export class UserService {
     };  
     this.removeUser(user.id);
     this.createUser(editedUser);
+    this.loggedUser.next(editedUser);
   }
 }
