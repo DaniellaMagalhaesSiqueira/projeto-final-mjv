@@ -29,32 +29,31 @@ export class ArticleDetailPageComponent implements OnInit {
     private dialog: MatDialog,
     private router: Router,
     private userService: UserService,
-  ) { 
+  ) {
     this.activatedRoute.params.subscribe((params) => {
       const article = this.articleService.getById(parseInt(params.id));
       this.article = article;
     });
-    this.comments = this.commentService.getComments().filter((c)=> c.article === this.article!.id);
-    this.commentService.getCommentStream().subscribe((comments) =>{
-      this.comments = comments.filter((c)=> c.article === this.article!.id);
+    this.comments = this.commentService.getComments().filter((c) => c.article === this.article!.id);
+    this.commentService.getCommentStream().subscribe((comments) => {
+      this.comments = comments.filter((c) => c.article === this.article!.id);
     });
 
   }
-
 
 
   ngOnInit(): void {
     this.commentForm = this.formBuilder.group({
       comment: [''],
     })
-    if(this.userService.getLoggedUser()){
+    if (this.userService.getLoggedUser()) {
       this.user = this.userService.getLoggedUser();
     }
-   
+
 
   }
 
-  onSubmit(){
+  onSubmit() {
     const formValue = this.commentForm.value;
     this.comment.user = this.user!.name;
     this.comment.article = this.article!.id;
@@ -68,7 +67,6 @@ export class ArticleDetailPageComponent implements OnInit {
     });
     this.commentForm.reset();
     this.router.navigateByUrl(`article-detail/${this.article!.id}`);
-    // this.router.navigateByUrl('all-articles');
 
   }
 }

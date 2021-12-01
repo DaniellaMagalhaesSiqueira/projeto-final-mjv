@@ -13,9 +13,6 @@ import { UserService } from '../../services/user.service';
 })
 export class SelfCreateUserPageComponent implements OnInit {
 
-  public myModel = '';
-  public mask = [/[1-9]/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/,'-',/\d/, /\d/,];
-  regex = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
   user: User = this.userService.getDefaultUser();
   userForm!: FormGroup;
   
@@ -25,8 +22,6 @@ export class SelfCreateUserPageComponent implements OnInit {
     private router: Router,
     private dialog: MatDialog,
     ){}
-    
-    
     
     ngOnInit(): void {
       

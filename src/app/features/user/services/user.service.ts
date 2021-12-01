@@ -111,10 +111,6 @@ export class UserService {
   }
 
   getUserById(id: number): User | undefined {
-    // let user: User | undefined = this.getDefaultUser();
-    // return this.users.find((user) => user.id === Number(id));
-    // this.users.subscribe(users => user = users.find((u) => u.id === Number(id)));
-    // return user;
     return this.getUsers().find((u) => u.id === Number(id));
   }
 

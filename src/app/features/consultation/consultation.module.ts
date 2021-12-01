@@ -5,7 +5,8 @@ import { AllConsultationsPageComponent } from './pages/all-consultations-page/al
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateConsultationComponent } from './pages/create-consultation/create-consultation.component';
 
 
 
@@ -14,13 +15,15 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     ConsultationComponent,
     ConsultationsListComponent,
-    AllConsultationsPageComponent
+    AllConsultationsPageComponent,
+    CreateConsultationComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class ConsultationModule { }

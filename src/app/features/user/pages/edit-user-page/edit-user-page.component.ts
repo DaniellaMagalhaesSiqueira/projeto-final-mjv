@@ -20,40 +20,40 @@ export class EditUserPageComponent implements OnInit {
   user: User | null = this.userService.getLoggedUser();
 
   editUserForm!: FormGroup;
-  
-  
+
+
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
     private dialog: MatDialog,
     private router: Router,
-    ) { 
-      this.userService.getLoggedUserStream().subscribe((loggedUser) =>{
-        this.user = loggedUser;
-      });
+  ) {
+    this.userService.getLoggedUserStream().subscribe((loggedUser) => {
+      this.user = loggedUser;
+    });
 
   }
 
-  
-  
+
+
   ngOnInit(): void {
 
-    this.editUserForm = this.formBuilder.group ({
+    this.editUserForm = this.formBuilder.group({
       name: new FormControl(this.user!.name, [Validators.required]),
       email: new FormControl(this.user!.email, [Validators.required]),
       password: new FormControl(this.user!.password, [Validators.required]),
-      confirmPassword: new FormControl(this.user!.password , [Validators.required]),
+      confirmPassword: new FormControl(this.user!.password, [Validators.required]),
       cpf: new FormControl(this.user!.cpf),
       birthDate: new FormControl(formatDate(this.user!.birthDate, 'yyyy-MM-dd', 'en')),
     },
-    {
-      validator: MustMatch('password', 'confirmPassword')
-    });
+      {
+        validator: MustMatch('password', 'confirmPassword')
+      });
     console.log(moment(this.user!.birthDate).toDate());
     console.log(formatDate(this.user!.birthDate, 'yyyy-MM-dd', 'en'));
   }
 
-  onSubmit(){
+  onSubmit() {
     const formValue = this.editUserForm.value;
     this.user!.name = formValue.name;
     this.user!.email = formValue.email;
@@ -61,12 +61,12 @@ export class EditUserPageComponent implements OnInit {
     this.user!.password = formValue.password;
     this.user!.birthDate = formatDate(formValue.birthDate, 'yyyy-MM-dd', 'en');
     this.userService.editUser(this.user!);
-     this.dialog.open(MessageDialogComponent, {
-       data: {
-         message: 'Por favor, faça novamente seu login.',
-         titleMessage: 'Conta alterada com sucesso!'
-       }
-     });
+    this.dialog.open(MessageDialogComponent, {
+      data: {
+        message: 'Por favor, faça novamente seu login.',
+        titleMessage: 'Conta alterada com sucesso!'
+      }
+    });
     sessionStorage.clear();
     this.userService.editLoggedUser(null);
     this.router.navigateByUrl('/home');

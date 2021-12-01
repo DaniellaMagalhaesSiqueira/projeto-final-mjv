@@ -5,6 +5,7 @@ import { AllArticlesPageComponent } from './features/article/pages/all-articles-
 import { ArticleDetailPageComponent } from './features/article/pages/article-detail-page/article-detail-page.component';
 import { CreateArticlePageComponent } from './features/article/pages/create-article-page/create-article-page.component';
 import { AllConsultationsPageComponent } from './features/consultation/pages/all-consultations-page/all-consultations-page.component';
+import { CreateConsultationComponent } from './features/consultation/pages/create-consultation/create-consultation.component';
 import { HomePageComponent } from './features/home/pages/home-page/home-page.component';
 import { LayoutPageComponent } from './features/layout/pages/layout-page/layout-page.component';
 import { LoginPageComponent } from './features/login/pages/login-page/login-page.component';
@@ -15,24 +16,24 @@ import { UserPageComponent } from './features/user/pages/user-page/user-page.com
 import { AuthGuardGuard } from './shared/guard/auth-guard.guard';
 
 const routes: Routes = [
-  { path: '', component: LayoutPageComponent, 
-  children: [
-    { path: '', pathMatch: 'full', redirectTo:'home' },
-    { path: 'home', component: HomePageComponent, },
-    { path: 'login', component: LoginPageComponent },
-    { path: 'all-consultations', component: AllConsultationsPageComponent },
-    { path: 'edit-user', component: EditUserPageComponent },
-    { path: 'all-articles', component: AllArticlesPageComponent },
-    { path: 'article-detail/:id', component: ArticleDetailPageComponent },
-    { path: 'self-create-user', component: SelfCreateUserPageComponent },
-
-  ]},
+  {
+    path: '', component: LayoutPageComponent,
+    children: [
+      { path: '', pathMatch: 'full', redirectTo: 'home' },
+      { path: 'home', component: HomePageComponent, },
+      { path: 'login', component: LoginPageComponent },
+      { path: 'all-consultations', component: AllConsultationsPageComponent },
+      { path: 'edit-user', component: EditUserPageComponent },
+      { path: 'all-articles', component: AllArticlesPageComponent },
+      { path: 'article-detail/:id', component: ArticleDetailPageComponent },
+      { path: 'self-create-user', component: SelfCreateUserPageComponent },
+    ]
+  },
   { path: 'users', component: UserPageComponent, canActivate: [AuthGuardGuard] },
   { path: 'create-admin-user', component: CreateAdminUserPageComponent, canActivate: [AuthGuardGuard] },
-  { path: 'create-article', component: CreateArticlePageComponent, canActivate: [AuthGuardGuard]  },
-  // 'article-detail/:id'
- 
-  // { path: 'admin', component: ,  canActivate: [ AuthGuardGuard] },
+  { path: 'create-article', component: CreateArticlePageComponent, canActivate: [AuthGuardGuard] },
+  { path: 'create-consultation', component: CreateConsultationComponent, canActivate: [AuthGuardGuard] },
+
 ];
 
 @NgModule({

@@ -6,6 +6,7 @@
     </mat-card-title-group>
     <mat-card-content>
         <p>{{ consultation?.description }}</p>
-        <p>Valor: {{ consultation?.price | currency: 'BRL' }}</p>
+        <p *ngIf="consultation?.price">Valor: {{ consultation!.price | currency: 'BRL' }}</p>
+        <p *ngIf="!consultation?.price">Valor a combinar</p>
     </mat-card-content>
   </mat-card>

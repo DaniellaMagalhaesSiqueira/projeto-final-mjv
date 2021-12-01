@@ -1,0 +1,44 @@
+<app-header></app-header>
+<h1>Criar Usuário Administrador</h1>
+<mat-form [formGroup]="consultationForm" class="consultation-form">
+    <mat-form-field appearance="fill">
+        <mat-label>Profissional</mat-label>
+        <input formControlName="professional" matInput type="text" placeholder="Digite o nome do profissional">
+        <mat-error *ngIf="consultationForm.invalid">Preencha este campo com pelo menos 5 caracteres.</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Descrição</mat-label>
+        <input formControlName="description" matInput type="text" placeholder="Digite informações publicitárias">
+        <mat-error *ngIf="consultationForm.invalid">Informe se o profissional faz consultas on-line, por exemplo.
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Caminho da imagem</mat-label>
+        <input formControlName="imageUrl" matInput type="text" placeholder="Digite caminho o para uma imagem jpg se houver">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Contato</mat-label>
+        <input formControlName="contact" matInput type="text" placeholder="Digite o contato">
+        <mat-error *ngIf="consultationForm.invalid">Informe e-mail telefones ou site do profissional.</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Especialidade</mat-label>
+        <input formControlName="theme" matInput type="text" placeholder="Digite a especialidade">
+        <mat-error *ngIf="consultationForm.invalid">Informe e-mail telefones ou site do profissional.</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Preço</mat-label>
+        <span matPrefix>R$ &nbsp;</span>
+        <input formControlName="theme" matInput type="number" placeholder="000.00">
+    </mat-form-field>
+    <button mat-raised-button (click)="onSubmit()" color="accent"
+        [disabled]="consultationForm.invalid">Cadastrar</button>
+</mat-form>
+<!-- // id: number;
+// isUser: boolean;
+// professional: string;
+// imageUrl: string;
+// description: string;
+// theme: string;
+// contact: string;
+// price: number; -->

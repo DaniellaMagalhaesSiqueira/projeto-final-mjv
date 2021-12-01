@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Consultation } from '../models/consultation.model';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { Consultation } from '../models/consultation.model';
 })
 export class ConsultationService {
 
-  consultations: Array<Consultation> = [
+   private consultations = new BehaviorSubject<Consultation[]>([
     { 
       id:1, 
       isUser: true,
@@ -87,12 +88,12 @@ export class ConsultationService {
       contact: 'cintia@gmail.com',
       imageUrl: 'https://cdn.w600.comps.canstockphoto.com.br/mulher-usu%C3%A1rio-femininas-%C3%ADcone-cliparte-vetor_csp37856004.jpg',
     },
-  ];
+  ]);
 
   constructor() { }
 
   generateNextId(): number{
-    return this.consultations[(this.consultations.length - 1)].id + 1;
+    return this.getConsultations()[(this.getConsultations().length - 1)].id + 1;
   }
 
   getDefaultConsultation(): Consultation {
@@ -109,28 +110,21 @@ export class ConsultationService {
   }
 
   createConsultation(consultation: Consultation){
-    this.consultations.push(consultation);
+    this.getConsultations().push(consultation);
+    this.consultations.next(this.getConsultations());
     return this.consultations;
   }
 
   getConsultations(){
-    return this.consultations;
+    return this.consultations.getValue();
+  }
+  getConsultationsStream(){
+    return this.consultations.asObservable();
   }
 
   getConsultationById(id: number){
-    return this.consultations.find((consultation) => consultation.id === Number(id));
+    return this.getConsultations().find((consultation) => consultation.id === Number(id));
   }
 
-  // getConsultationFilterProfessional(professional: string){
-  //   return this.consultations.filter((consultation) => 
-  //     consultation.professional.toLowerCase().search(professional.toLowerCase()) > -1);
-  // }
 
-  // getConsultationFilterId(id: number){
-  //   const consultation = this.getConsultationById(Number(id));
-  //   if(!consultation){
-  //     return [];
-  //   }
-  //   return [consultation];
-  // }
 }

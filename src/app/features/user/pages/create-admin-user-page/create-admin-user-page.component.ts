@@ -1,5 +1,4 @@
 import { MatDialog } from '@angular/material/dialog';
-
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
 import { MessageDialogComponent } from 'src/app/shared/dialogs/message-dialog/message-dialog.component';
@@ -28,13 +27,13 @@ export class CreateAdminUserPageComponent implements OnInit {
 
     this.adminForm = this.formBuilder.group({
       name: new FormControl('', [Validators.required]),
-      email: new FormControl('',[Validators.required, Validators.email]),
-      birthDate: new FormControl('',[Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      birthDate: new FormControl('', [Validators.required]),
       cpf: new FormControl('', [Validators.required]),
     });
   }
 
-  onSubmit(){
+  onSubmit() {
     const formValue = this.adminForm.value;
     console.log(this.adminForm.errors)
     this.user.isAdmin = true;
@@ -50,7 +49,7 @@ export class CreateAdminUserPageComponent implements OnInit {
         titleMessage: `${this.user.name} é um Administrador`
       }
     });
-   this.router.navigateByUrl('/users');
+    this.router.navigateByUrl('/users');
   }
 
 }

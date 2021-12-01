@@ -57,7 +57,6 @@ export class CommentService {
   createComment(comment: Comment){
     this.getComments().push(comment);
     this.comments.next(this.getComments());
-    // return this.comments;
   }
 
 

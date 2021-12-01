@@ -21,10 +21,8 @@ export class ManagerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
-    // const userStorage = sessionStorage.getItem('user');
+
     if(this.userService.getLoggedUser()){
-      // this.user = JSON.parse(userStorage);
       this.user = this.userService.getLoggedUser();
 
     }

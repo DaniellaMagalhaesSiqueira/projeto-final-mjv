@@ -27,8 +27,6 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  //sessionStorage e localStorage
-
   onSubmit(){
     const user = this.userService.getUserByEmailAndPassword(this.loginForm.value.email, this.loginForm.value.password);
     console.log(user);
