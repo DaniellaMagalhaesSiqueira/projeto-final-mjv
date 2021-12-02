@@ -38,12 +38,16 @@ export class CreateArticlePageComponent implements OnInit {
   onSubmit(){
     const formValue = this.articleForm.value;
     if(this.article){
-      this.article.title = this.articleForm.value.title;
-      this.article.author = this.articleForm.value.author;
-      this.article.preview = this.articleForm.value.preview;
-      this.article.text = this.articleForm.value.text;
-      this.article.theme = this.articleForm.value.theme;
-      this.article.imageUrl = this.articleForm.value.imageUrl;
+      this.article.title = formValue.title;
+      this.article.author = formValue.author;
+      this.article.preview = formValue.preview;
+      this.article.text = formValue.text;
+      this.article.theme = formValue.theme;
+      if(!formValue.imageUrl.includes('.jpg')){
+        this.article.imageUrl = 'https://loja.stylebrazil.com.br/media/catalog/product/cache/1/image/b28c5f1281de4ad6561179a9715ec591/v/e/verde_1.jpg';
+      }else{
+        this.article.imageUrl = formValue.imageUrl;
+      }
       this.articleService.createArticle(this.article);
     }
     this.dialog.open(MessageDialogComponent,{
